@@ -19,88 +19,90 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 
 /**
- * 服务器响应 终端发起的鉴权请求   
+ * 服务器响应 终端发起的鉴权请求
  * 
  * 回复 如有配置信息修改,则发布配置信息数据,无配置信息修改 则查询配置信息.
+ * 
  * @author cgm
  *
  */
 
-public class Protocol_0102 implements ProtocolHandler{
+public class Protocol_0102 implements ProtocolHandler {
 
 	BikeDeviceService bikeDeviceService;
 	private SessionManager sessionManager;
+
 	@Override
-	public IMessageBody handlerMsg(Object obj,Object service, Channel chn) {
+	public IMessageBody handlerMsg(Object obj, Object service, Channel chn) {
 		// TODO Auto-generated method stub
-		// 判断是否有配置信息修改   联系数据库操作
-		sendAckMsg((T808Message)obj,chn);
+		// 判断是否有配置信息修改 联系数据库操作
+		sendAckMsg((T808Message) obj, chn);
 		// 先发送应答信息.然后再发送配置或查询信息;
-		//bikeDeviceService = (BikeDeviceService)service;
+		// bikeDeviceService = (BikeDeviceService)service;
 		sessionManager = SessionManager.getInstance();
 		Session dev = sessionManager.findBySessionId(chn.id().asLongText());
-		
-		logger.info("应答信息:{}"+ dev);
+
+		logger.info("应答信息:{}" + dev);
 		BikeDevice bike = dev.getBike();
-		
+
 		IMessageBody msg = null;
-		if(bike!=null&&bike.getConfigChanged()!=null&&bike.getConfigChanged()==1)
-		{
-			msg = configParameter(bike);
-		} else {
-			msg = searchParameter();
+		if (bike != null) {
+			if (bike.getConfigChanged() != null && bike.getConfigChanged() == 1) {
+				msg = configParameter(bike);
+			} else {
+				msg = searchParameter();
+			}
 		}
-		//sessionManager.put(chn.id().asLongText(), dev);
-		
-		
-		
-		
+		// sessionManager.put(chn.id().asLongText(), dev);
+
 		return msg;
 	}
-	
+
 	/**
 	 * 服务器设置设备参数
+	 * 
 	 * @return
 	 */
-	
-	private IMessageBody configParameter(BikeDevice bike){
+
+	private IMessageBody configParameter(BikeDevice bike) {
 		JT_8103 msg = new JT_8103();
 		ArrayList<ParameterItem> items = new ArrayList<>();
 		ParameterItem apn = new ParameterItem();
 		apn.setParameterId(0x10);
-		apn.setParameterLength((byte)bike.getApn().length());
+		apn.setParameterLength((byte) bike.getApn().length());
 		apn.setParameterValue(bike.getApn());
 		items.add(apn);
 		ParameterItem ip = new ParameterItem();
 		ip.setParameterId(0x13);
-		ip.setParameterLength((byte)bike.getIp().length());
+		ip.setParameterLength((byte) bike.getIp().length());
 		ip.setParameterValue(bike.getIp());
 		items.add(ip);
 		ParameterItem port = new ParameterItem();
 		port.setParameterId(0x18);
-		port.setParameterLength((byte)4);
+		port.setParameterLength((byte) 4);
 		port.setParameterValue(bike.getPort());
 		items.add(port);
 		ParameterItem lock_upload_interval = new ParameterItem();
 		lock_upload_interval.setParameterId(0x27);
-		lock_upload_interval.setParameterLength((byte)4);
+		lock_upload_interval.setParameterLength((byte) 4);
 		lock_upload_interval.setParameterValue(bike.getLockUploadInterval());
 		items.add(lock_upload_interval);
 		ParameterItem lock_can_upload = new ParameterItem();
 		lock_can_upload.setParameterId(0x28);
-		lock_can_upload.setParameterLength((byte)4);
+		lock_can_upload.setParameterLength((byte) 4);
 		lock_can_upload.setParameterValue(bike.getLockCanUpload());
 		items.add(lock_can_upload);
 		ParameterItem upload_interval = new ParameterItem();
 		upload_interval.setParameterId(0x29);
-		upload_interval.setParameterLength((byte)4);
+		upload_interval.setParameterLength((byte) 4);
 		upload_interval.setParameterValue(bike.getUploadInterval());
 		items.add(upload_interval);
 		msg.setParameters(items);
-		msg.setParametersCount((byte)items.size());
+		msg.setParametersCount((byte) items.size());
 		return msg;
 	}
-	private IMessageBody searchParameter(){
+
+	private IMessageBody searchParameter() {
 		JT_8106 msg = new JT_8106();
 		ArrayList<Integer> items = new ArrayList<>();
 		items.add(0x10);
@@ -109,21 +111,22 @@ public class Protocol_0102 implements ProtocolHandler{
 		items.add(0x27);
 		items.add(0x28);
 		items.add(0x29);
-		/*items.add(0xe000);
-		items.add(0xe001);
-		items.add(0xf000);
-		items.add(0xf001);*/
-		msg.setParametersCount((byte)items.size());
+		/*
+		 * items.add(0xe000); items.add(0xe001); items.add(0xf000);
+		 * items.add(0xf001);
+		 */
+		msg.setParametersCount((byte) items.size());
 		msg.setParametersIDs(items);
 		return msg;
 	}
-	private void sendAckMsg(T808Message obj,Channel chn)
-	{
+
+	private void sendAckMsg(T808Message obj, Channel chn) {
 		T808Message tMsg = (T808Message) obj;
 		T808MessageHeader header = tMsg.getHeader();
 		JT_8001 ack = new JT_8001();
-		ack.setResponseMessageId((short)tMsg.getMessageType());
+		ack.setResponseMessageId((short) tMsg.getMessageType());
 		header.setMessageType(0x8001);
+		header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
 		tMsg.setHeader(header);
 		tMsg.setMessageContents(ack);
 		byte[] writeByte = tMsg.WriteToBytes();
@@ -134,7 +137,7 @@ public class Protocol_0102 implements ProtocolHandler{
 	@Override
 	public void dealOther(Object obj) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

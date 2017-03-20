@@ -67,7 +67,12 @@ public class NettyServerHandler extends ChannelHandlerAdapter { // (1)
 	 * 
 	 */
 	private void processPackageData(T808Message packageData,Object service,Channel chn) {
-		logger.info(packageData.getMessageContents().toString());
+		//logger.info(packageData.getMessageContents().toString());
+		if(packageData.getMessageType()!=0x2)
+		{
+			logger.info(packageData.getMessageContents().toString());
+		}
+		
 		/*logger.info(packageData.getSimNo());
 		logger.info(packageData.getPrefixID());
 		logger.info(packageData.getPlateNo());

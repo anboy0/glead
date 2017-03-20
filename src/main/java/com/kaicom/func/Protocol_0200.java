@@ -109,7 +109,7 @@ public class Protocol_0200 implements ProtocolHandler {
 		JT_8001 ack = new JT_8001();
 		ack.setResponseMessageId((short) tMsg.getMessageType());
 		header.setMessageType(0x8001);
-
+		header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
 		tMsg.setHeader(header);
 		tMsg.setMessageContents(ack);
 		byte[] writeByte = tMsg.WriteToBytes();
@@ -122,7 +122,7 @@ public class Protocol_0200 implements ProtocolHandler {
 		JT_8108 update = new JT_8108();
 		update.setType((byte) 0);
 		update.setUrl(version.getGsmUrl());
-		byte[] vendor = Tools.HexString2Bytes(version.getVendorId());
+		byte[] vendor = version.getVendorId().getBytes();
 		update.setVersion("" + version.getGsmVersion());
 		update.setVendor(vendor);
 		return update;
@@ -132,7 +132,7 @@ public class Protocol_0200 implements ProtocolHandler {
 		JT_8108 update = new JT_8108();
 		update.setType((byte) 1);
 		update.setUrl(version.getBtUrl());
-		byte[] vendor = Tools.HexString2Bytes(version.getVendorId());
+		byte[] vendor = version.getVendorId().getBytes();
 		update.setVersion("" + version.getBtVersion());
 		update.setVendor(vendor);
 		return update;

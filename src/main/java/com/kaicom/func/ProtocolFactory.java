@@ -24,12 +24,15 @@ public class ProtocolFactory {
 			if (dataBack != null) {
 				T808Message tMsg = (T808Message) obj;
 				T808MessageHeader header = tMsg.getHeader();
+				System.out.println("###:"+header.getMessagePacketNo());
 				//header.setSimId("15168325465");
 				String backClassName[] = dataBack.getClass().getName().split("_");
 				int msgType = Tools.HexString2Short(backClassName[1]);//Integer.parseInt(backClassName[1]);
 				
 				header.setMessageType(msgType);
+				header.setMessageSerialNo(header.getMessageSerialNo());
 				tMsg.setHeader(header);
+				
 				tMsg.setMessageContents(dataBack);
 				byte[] writeByte = tMsg.WriteToBytes();
 				ByteBuf tx = Unpooled.copiedBuffer(writeByte);

@@ -40,13 +40,16 @@ public class Protocol_0100 implements ProtocolHandler{
 		// TODO Auto-generated method stub
 		T808Message msg = (T808Message) obj;
 		bikeDeviceService = (BikeDeviceService)service;
+		
 		//BikeDevice devices= bikeDeviceService.getBikeFromTel("15168325465");
 		//logger.info("server:"+this.getClass().getName()+"[设备信息]"+devices);
 		logger.info("server:"+this.getClass().getName()+"[车辆手机号]"+msg.getSimNo());
 
 		JT_8100 register = new JT_8100();
 		long registerNo = System.currentTimeMillis();
-		register.setRegisterResponseMessageSerialNo((short)System.currentTimeMillis());
+		
+		//register.setRegisterNo();
+		register.setRegisterResponseMessageSerialNo(msg.getHeader().getMessageSerialNo());
 		register.setRegisterNo(""+registerNo);
 		sessionManager = SessionManager.getInstance();
 		Session dev = sessionManager.findBySessionId(chn.id().asLongText());
