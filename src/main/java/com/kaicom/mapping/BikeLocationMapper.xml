@@ -23,6 +23,7 @@
     <result column="bt_version" jdbcType="INTEGER" property="btVersion" />
     <result column="gsm_version" jdbcType="INTEGER" property="gsmVersion" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -84,7 +85,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, device_id, vendor, product_id, lat, lng, bat_vol, alt, speed, course, time, signal_db, 
-    gnss, lock_status, upload_status, mcc, mnc, lac, bt_version, gsm_version, create_time
+    gnss, lock_status, upload_status, mcc, mnc, lac, bt_version, gsm_version, create_time, 
+    tel
   </sql>
   <select id="selectByExample" parameterType="com.kaicom.model.BikeLocationExample" resultMap="BaseResultMap">
     select
@@ -129,14 +131,16 @@
       course, time, signal_db, 
       gnss, lock_status, upload_status, 
       mcc, mnc, lac, bt_version, 
-      gsm_version, create_time)
+      gsm_version, create_time, tel
+      )
     values (#{id,jdbcType=INTEGER}, #{deviceId,jdbcType=VARCHAR}, #{vendor,jdbcType=VARCHAR}, 
       #{productId,jdbcType=VARCHAR}, #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, 
       #{batVol,jdbcType=TINYINT}, #{alt,jdbcType=SMALLINT}, #{speed,jdbcType=SMALLINT}, 
       #{course,jdbcType=SMALLINT}, #{time,jdbcType=TIMESTAMP}, #{signalDb,jdbcType=TINYINT}, 
       #{gnss,jdbcType=TINYINT}, #{lockStatus,jdbcType=TINYINT}, #{uploadStatus,jdbcType=TINYINT}, 
       #{mcc,jdbcType=SMALLINT}, #{mnc,jdbcType=SMALLINT}, #{lac,jdbcType=VARCHAR}, #{btVersion,jdbcType=INTEGER}, 
-      #{gsmVersion,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+      #{gsmVersion,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{tel,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.kaicom.model.BikeLocation">
     insert into kl_location
@@ -204,6 +208,9 @@
       <if test="createTime != null">
         create_time,
       </if>
+      <if test="tel != null">
+        tel,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -268,6 +275,9 @@
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -343,6 +353,9 @@
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -370,7 +383,8 @@
       lac = #{record.lac,jdbcType=VARCHAR},
       bt_version = #{record.btVersion,jdbcType=INTEGER},
       gsm_version = #{record.gsmVersion,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      tel = #{record.tel,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -429,6 +443,9 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
       and device_id = #{deviceId,jdbcType=VARCHAR}
@@ -453,7 +470,8 @@
       lac = #{lac,jdbcType=VARCHAR},
       bt_version = #{btVersion,jdbcType=INTEGER},
       gsm_version = #{gsmVersion,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      tel = #{tel,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
       and device_id = #{deviceId,jdbcType=VARCHAR}
       and vendor = #{vendor,jdbcType=VARCHAR}

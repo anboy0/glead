@@ -52,7 +52,8 @@ public class Protocol_0100 implements ProtocolHandler{
 		Session dev = sessionManager.findBySessionId(chn.id().asLongText());
 		dev.setTerminalPhone(msg.getSimNo());
 		if(bikeDeviceService.hasBike(msg.getSimNo())){
-			register.setRegisterResponseResult(CAR_REGISTER);
+			//register.setRegisterResponseResult(CAR_REGISTER);
+			register.setRegisterResponseResult(SUCCESS);
 			BikeDevice devices= bikeDeviceService.getBikeFromTel(msg.getSimNo());
 			dev.setBike(devices);
 		} else {

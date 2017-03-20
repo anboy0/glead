@@ -37,6 +37,8 @@ public class BikeLocation extends BikeLocationKey {
 
     private Date createTime;
 
+    private String tel;
+
     public Double getLat() {
         return lat;
     }
@@ -171,5 +173,13 @@ public class BikeLocation extends BikeLocationKey {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
     }
 }

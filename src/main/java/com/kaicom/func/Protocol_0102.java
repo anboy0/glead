@@ -44,7 +44,7 @@ public class Protocol_0102 implements ProtocolHandler{
 		BikeDevice bike = dev.getBike();
 		
 		IMessageBody msg = null;
-		if(bike.getConfigChanged()!=null&&bike.getConfigChanged()==1)
+		if(bike!=null&&bike.getConfigChanged()!=null&&bike.getConfigChanged()==1)
 		{
 			msg = configParameter(bike);
 		} else {

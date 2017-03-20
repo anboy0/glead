@@ -39,7 +39,10 @@ public class Protocol_0200 implements ProtocolHandler {
 		sessionManager = SessionManager.getInstance();
 		Session dev = sessionManager.findBySessionId(chn.id().asLongText());
 		BikeDevice bike = dev.getBike();
+		if(bike ==null)
+			return null;
 		JT_0200 loc = (JT_0200) msg.getMessageContents();
+		
 		bike.setLat((double) (loc.getLatitude() / 1000000.0));
 		bike.setLng((double) (loc.getLongitude() / 1000000.0));
 		bike.setUploadTime(new Date());
@@ -61,6 +64,7 @@ public class Protocol_0200 implements ProtocolHandler {
 		BikeLocation location = new BikeLocation();
 		location.setAlt(loc.getAltitude());
 		location.setDeviceId(bike.getDeviceId());
+		location.setTel(bike.getTel());
 		location.setLat((double) (loc.getLatitude() / 1000000.0));
 		location.setLng((double) (loc.getLongitude() / 1000000.0));
 		location.setBatVol(loc.getBat_vol());
