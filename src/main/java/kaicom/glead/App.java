@@ -22,7 +22,7 @@ public class App
 	
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "this is redis version!" );
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         NettyServer server = ctx.getBean(NettyServer.class);
         try {
