@@ -4541,3 +4541,11 @@ io.netty.channel.ChannelPipelineException: kaicom.test.sever.NettyServerHandler 
 [INFO] [2017-03-20 11:09:22][com.kaicom.protocol.T808Message]接收:8001000502000000001500250000020000b4
 [INFO] [2017-03-20 11:09:22][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000200
 [INFO] [2017-03-20 11:09:22][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000200
+[INFO] [2017-03-20 12:34:10][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@484b61fc: startup date [Mon Mar 20 12:34:10 CST 2017]; root of context hierarchy
+[INFO] [2017-03-20 12:34:10][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-03-20 12:34:11][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-20 12:34:13][kaicom.test.sever.NettyServer]TCP服务启动完毕,port={18888}
+[INFO] [2017-03-20 12:34:31][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@484b61fc: startup date [Mon Mar 20 12:34:31 CST 2017]; root of context hierarchy
+[INFO] [2017-03-20 12:34:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-03-20 12:34:32][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-20 12:34:33][kaicom.test.sever.NettyServer]TCP服务启动完毕,port={18888}
