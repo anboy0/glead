@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaicom.dao.BikeVendorMapper">
+  <resultMap id="BaseResultMap" type="com.kaicom.model.BikeVendor">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="vendor_name" jdbcType="VARCHAR" property="vendorName" />
+    <result column="vendor_code" jdbcType="VARCHAR" property="vendorCode" />
+    <result column="contact_tel" jdbcType="VARCHAR" property="contactTel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, vendor_name, vendor_code, contact_tel, create_time, contact_name
+  </sql>
+  <select id="selectByExample" parameterType="com.kaicom.model.BikeVendorExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from kl_vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kl_vendor
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from kl_vendor
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kaicom.model.BikeVendorExample">
+    delete from kl_vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kaicom.model.BikeVendor">
+    insert into kl_vendor (id, vendor_name, vendor_code, 
+      contact_tel, create_time, contact_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{vendorName,jdbcType=VARCHAR}, #{vendorCode,jdbcType=VARCHAR}, 
+      #{contactTel,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{contactName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kaicom.model.BikeVendor">
+    insert into kl_vendor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="vendorName != null">
+        vendor_name,
+      </if>
+      <if test="vendorCode != null">
+        vendor_code,
+      </if>
+      <if test="contactTel != null">
+        contact_tel,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="contactName != null">
+        contact_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="vendorName != null">
+        #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCode != null">
+        #{vendorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null">
+        #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactName != null">
+        #{contactName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kaicom.model.BikeVendorExample" resultType="java.lang.Long">
+    select count(*) from kl_vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update kl_vendor
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.vendorName != null">
+        vendor_name = #{record.vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorCode != null">
+        vendor_code = #{record.vendorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactTel != null">
+        contact_tel = #{record.contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.contactName != null">
+        contact_name = #{record.contactName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update kl_vendor
+    set id = #{record.id,jdbcType=INTEGER},
+      vendor_name = #{record.vendorName,jdbcType=VARCHAR},
+      vendor_code = #{record.vendorCode,jdbcType=VARCHAR},
+      contact_tel = #{record.contactTel,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      contact_name = #{record.contactName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kaicom.model.BikeVendor">
+    update kl_vendor
+    <set>
+      <if test="vendorName != null">
+        vendor_name = #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorCode != null">
+        vendor_code = #{vendorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null">
+        contact_tel = #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactName != null">
+        contact_name = #{contactName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kaicom.model.BikeVendor">
+    update kl_vendor
+    set vendor_name = #{vendorName,jdbcType=VARCHAR},
+      vendor_code = #{vendorCode,jdbcType=VARCHAR},
+      contact_tel = #{contactTel,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      contact_name = #{contactName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
