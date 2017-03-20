@@ -34,7 +34,7 @@ public class Protocol_0102 implements ProtocolHandler{
 	public IMessageBody handlerMsg(Object obj,Object service, Channel chn) {
 		// TODO Auto-generated method stub
 		// 判断是否有配置信息修改   联系数据库操作
-		
+		sendAckMsg((T808Message)obj,chn);
 		// 先发送应答信息.然后再发送配置或查询信息;
 		//bikeDeviceService = (BikeDeviceService)service;
 		sessionManager = SessionManager.getInstance();
@@ -51,7 +51,7 @@ public class Protocol_0102 implements ProtocolHandler{
 			msg = searchParameter();
 		}
 		//sessionManager.put(chn.id().asLongText(), dev);
-		sendAckMsg((T808Message)obj,chn);
+		
 		
 		
 		

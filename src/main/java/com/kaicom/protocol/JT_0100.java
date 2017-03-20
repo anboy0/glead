@@ -151,14 +151,18 @@ public class JT_0100 implements IMessageBody {
 				try {
 					buff.put(getProvinceId());
 					buff.put(getCityId());
-					buff.put(getManufactureId(), 5);
-					buff.put(getProductlNo(), 20);
-					buff.put(Byte.parseByte(getDeviceId().substring(0, 2), 16));
+					/*buff.put(getManufactureId().getBytes(), 5);
+					buff.put(getProductlNo().getBytes(), 20);*/
+					buff.put(getManufactureId().getBytes());
+					buff.put(getProductlNo().getBytes());
+					buff.put(getDeviceId().getBytes());
+					/*buff.put(Byte.parseByte(getDeviceId().substring(0, 2), 16));
 					buff.put(Byte.parseByte(getDeviceId().substring(2, 4), 16));
 					buff.put(Byte.parseByte(getDeviceId().substring(4, 6), 16));
 					buff.put(Byte.parseByte(getDeviceId().substring(6, 8), 16));
 					buff.put(Byte.parseByte(getDeviceId().substring(8, 10), 16));
 					buff.put(Byte.parseByte(getDeviceId().substring(10, 12), 16));
+					*/
 					buff.put((byte) 0xFF);
 					// buff.put(GetFixedSizedBytes(TerminalId, 7, 0x00));
 					buff.put((byte) getType());
@@ -199,16 +203,16 @@ public class JT_0100 implements IMessageBody {
 		} else {
 			setProvinceId(buff.getShort());
 			setCityId(buff.getShort());
-			vendor = Tools.ToHexString(buff.gets(5)).trim();
+			vendor = buff.getString(5).trim();
 
 			int dataLen = 37;
 			if (bytes.length < 36) {
 				setProductlNo(buff.getString(8).trim());
 				dataLen = 25;
 			} else
-				this.product_id = Tools.ToHexString(buff.gets(20)).trim();
+				this.product_id = buff.getString(20).trim();
 			// byte[] bcdBytes = buff.gets(7);
-			this.device_id = Tools.ToHexString(buff.gets(7)).trim();
+			this.device_id = buff.getString(7).trim();
 			// TerminalId = buff.getString(7));
 			this.type = (buff.get());
 
@@ -253,6 +257,7 @@ public class JT_0100 implements IMessageBody {
 		StringBuilder sBuilder = new StringBuilder();
 		sBuilder.append(String.format("省：%1$s,市：%2$s,制造商：%3$s，型号：%4$s，终端：%5$s，车辆类型：%6$s，车辆标示:%7$s", getProvinceId(),
 				getCityId(), getManufactureId(), getProductlNo(), getDeviceId(), getType(), getMacInfo()));
+		sBuilder.append(String.format("iccid: %1$s bt_mac: %2$s ",getIccid(),getBt_mac()));
 		return sBuilder.toString();
 	}
 

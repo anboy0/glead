@@ -208,6 +208,7 @@ public class T808Message {
 			byte xor = GetCheckXor(validMessageBytes, 0,
 					validMessageBytes.length - 1);
 			byte realXor = validMessageBytes[validMessageBytes.length - 1];
+			logger.info("报文校验码:"+Tools.ToHexString(realXor)+"  计算校验码:"+Tools.ToHexString(xor));
 			if (xor == realXor) {
 				_checkSum = new byte[] { xor };
 				try {
