@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 /** 
  多媒体数据上传

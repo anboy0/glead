@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 public class JT_0A86 implements IMessageBody
 {

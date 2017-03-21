@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 /** 
  设定的驾驶员代码及其对应的机动车驾驶证号码

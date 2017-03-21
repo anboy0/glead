@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 /** 
  删除矩形区域

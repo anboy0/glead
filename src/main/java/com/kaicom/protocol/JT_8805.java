@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 /** 
  单条存储多媒体数据检索上传命令

@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
+/*import java.util.function.BiConsumer;
+import java.util.stream.Collectors;*/
 
 import com.kaicom.model.BikeDevice;
 
@@ -96,16 +96,16 @@ public class SessionManager {
 		return sessionIdMap.keySet();
 	}
 
-	public void forEach(BiConsumer<? super String, ? super Session> action) {
+	/*public void forEach(BiConsumer<? super String, ? super Session> action) {
 		sessionIdMap.forEach(action);
-	}
+	}*/
 
 	public Set<Entry<String, Session>> entrySet() {
 		return sessionIdMap.entrySet();
 	}
 
-	public List<Session> toList() {
+	/*public List<Session> toList() {
 		return this.sessionIdMap.entrySet().stream().map(e -> e.getValue()).collect(Collectors.toList());
-	}
+	}*/
 
 }

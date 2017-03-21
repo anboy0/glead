@@ -1,5 +1,4 @@
-﻿package com.kaicom.protocol;
-
+package com.kaicom.protocol;
 /** 
  驾驶员身份信息采集上报(登签)
  7e 07 02 00 07 01 50 75 34 89 13 02 e5 02 14 07 04 13 44 47 6a 7e

@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 public class Recorder_TiredDrivingRecord implements IRecorderDataBlock {
 	public final byte getCommandWord() {

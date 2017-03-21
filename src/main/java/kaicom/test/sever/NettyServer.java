@@ -35,50 +35,67 @@ public class NettyServer {
 	public NettyServer(){
 		
 	}
-	private void bind() throws Exception {
-		this.bossGroup = new NioEventLoopGroup();
-		this.workerGroup = new NioEventLoopGroup();
-		ServerBootstrap serverBootstrap = new ServerBootstrap();
-		serverBootstrap.group(bossGroup, workerGroup)//
-				.channel(NioServerSocketChannel.class) //
-				.childHandler(new ChannelInitializer<SocketChannel>() { //
-					@Override
-					public void initChannel(SocketChannel ch) throws Exception {
-						ch.pipeline().addLast("idleStateHandler",
-								new IdleStateHandler(30, 0, 0, TimeUnit.MINUTES));
-						// 1024表示单条消息的最大长度，解码器在查找分隔符的时候，达到该长度还没找到的话会抛异常
-						ch.pipeline().addLast(
-								new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),
-										Unpooled.copiedBuffer(new byte[] { 0x7e,0x7e })));
-						ch.pipeline().addLast(new JT808Decoder());
-						ch.pipeline().addLast(nettyServerHandler);
-					}
-				}).option(ChannelOption.SO_BACKLOG, 128) //
-				.childOption(ChannelOption.SO_KEEPALIVE, true);
-
-		logger.info("TCP服务启动完毕,port={"+this.port+"}");
-		ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
-
-		channelFuture.channel().closeFuture().sync();
-	}
+	
 
 	public synchronized void startServer() {
 		if (this.isRunning) {
 			throw new IllegalStateException(this.getName() + " is already started .");
 		}
 		this.isRunning = true;
-
-		new Thread(() -> {
-			try {
+		new BindThread().start();
+		//new Thread() 
+		/*new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
 				this.bind();
-			} catch (Exception e) {
-				logger.info("TCP服务启动出错:{"+e.getMessage()+"}");
-				
-				e.printStackTrace();
 			}
-		}, this.getName()).start();
+		};*/
+		
 	}
+	class BindThread extends Thread {
+		 void bind() throws Exception {
+			bossGroup = new NioEventLoopGroup();
+			workerGroup = new NioEventLoopGroup();
+			ServerBootstrap serverBootstrap = new ServerBootstrap();
+			serverBootstrap.group(bossGroup, workerGroup)//
+					.channel(NioServerSocketChannel.class) //
+					.childHandler(new ChannelInitializer<SocketChannel>() { //
+						@Override
+						public void initChannel(SocketChannel ch) throws Exception {
+							ch.pipeline().addLast("idleStateHandler",
+									new IdleStateHandler(30, 0, 0, TimeUnit.MINUTES));
+							// 1024表示单条消息的最大长度，解码器在查找分隔符的时候，达到该长度还没找到的话会抛异常
+							ch.pipeline().addLast(
+									new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),
+											Unpooled.copiedBuffer(new byte[] { 0x7e,0x7e })));
+							ch.pipeline().addLast(new JT808Decoder());
+							ch.pipeline().addLast(nettyServerHandler);
+						}
+					}).option(ChannelOption.SO_BACKLOG, 128) //
+					.childOption(ChannelOption.SO_KEEPALIVE, true);
 
+			logger.info("TCP服务启动完毕,port={"+port+"}");
+			ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
+
+			channelFuture.channel().closeFuture().sync();
+		}
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			super.run();
+				try {
+					this.bind();
+				} catch (Exception e) {
+					logger.info("TCP服务启动出错:{"+e.getMessage()+"}");
+					
+					e.printStackTrace();
+				}
+			
+		}
+		
+	}
 	public synchronized void stopServer() {
 		if (!this.isRunning) {
 			throw new IllegalStateException(this.getName() + " is not yet started .");

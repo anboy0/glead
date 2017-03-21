@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 /**
  * 查询终端参数,查询终端参数消息体为空。则返回主要的参数。也可下发查询具体的几个参数；

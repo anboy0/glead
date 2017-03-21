@@ -1,4 +1,4 @@
-﻿package com.kaicom.protocol;
+package com.kaicom.protocol;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

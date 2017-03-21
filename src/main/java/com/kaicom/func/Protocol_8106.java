@@ -10,6 +10,7 @@ import com.kaicom.protocol.JT_0200;
 import com.kaicom.protocol.ParameterItem;
 import com.kaicom.protocol.T808Message;
 import com.kaicom.protocol.T808MessageHeader;
+import com.kaicom.func.ProtocolHandler;
 import com.kaicom.tool.Tools;
 
 import io.netty.buffer.ByteBuf;
@@ -30,7 +31,7 @@ public class Protocol_8106 implements ProtocolHandler{
 		loc.setLongitude(120190000);
 		loc.setSpeed((short)15);
 		loc.setCourse((short)175);
-		logger.info("client:"+this.getClass().getName()+" date time "+ Tools.getDateBCDStr(new Date()));
+		//logger.info("client:"+this.getClass().getName()+" date time "+ Tools.getDateBCDStr(new Date()));
 		
 		loc.setTime(Tools.getDateBCDStr(new Date()));
 		loc.setSignal_db((byte)20);
