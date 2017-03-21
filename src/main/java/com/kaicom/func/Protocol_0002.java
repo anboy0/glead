@@ -28,7 +28,8 @@ public class Protocol_0002 implements ProtocolHandler{
 		JT_8001 ack = new JT_8001();
 		ack.setResponseMessageId((short) tMsg.getMessageType());
 		header.setMessageType(0x8001);
-		header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
+		ack.setResponseMessageSerialNo(header.getMessageSerialNo());
+		//header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
 		tMsg.setHeader(header);
 		tMsg.setMessageContents(ack);
 		

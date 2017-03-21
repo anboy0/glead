@@ -126,7 +126,7 @@ public class Protocol_0102 implements ProtocolHandler {
 		JT_8001 ack = new JT_8001();
 		ack.setResponseMessageId((short) tMsg.getMessageType());
 		header.setMessageType(0x8001);
-		header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
+		ack.setResponseMessageSerialNo(header.getMessageSerialNo());
 		tMsg.setHeader(header);
 		tMsg.setMessageContents(ack);
 		byte[] writeByte = tMsg.WriteToBytes();

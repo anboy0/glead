@@ -109,8 +109,9 @@ public class Protocol_0200 implements ProtocolHandler {
 		JT_8001 ack = new JT_8001();
 		ack.setResponseMessageId((short) tMsg.getMessageType());
 		header.setMessageType(0x8001);
-		header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
+		//header.setMessageSerialNo(header.getMessageSerialNo()+1));
 		tMsg.setHeader(header);
+		ack.setResponseMessageSerialNo(header.getMessageSerialNo());
 		tMsg.setMessageContents(ack);
 		byte[] writeByte = tMsg.WriteToBytes();
 		ByteBuf tx = Unpooled.copiedBuffer(writeByte);
