@@ -3,8 +3,6 @@ package com.kaicom.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +28,7 @@ public class BikeDeviceService {
 	private BikeVendorMapper bikeVendorMapper;
 	@Autowired
 	private BikeVersionMapper bikeVersion;
-	@Cacheable("bikeTel")
+
 	public BikeDevice getBikeFromTel(String tel) {
 		BikeDeviceExample example = new BikeDeviceExample();
 		BikeDeviceExample.Criteria criteria = example.createCriteria();
@@ -43,7 +41,7 @@ public class BikeDeviceService {
 		else
 			return null;
 	}
-	@Cacheable("hasBike")
+
 	public boolean hasBike(String tel) {
 		BikeDeviceExample example = new BikeDeviceExample();
 		BikeDeviceExample.Criteria criteria = example.createCriteria();
@@ -55,7 +53,7 @@ public class BikeDeviceService {
 		else
 			return false;
 	}
-	@CacheEvict(value = { "bikeTel" }, allEntries = true)  
+
 	public boolean update(BikeDevice dev) {
 		BikeDeviceExample example = new BikeDeviceExample();
 		BikeDeviceExample.Criteria criteria = example.createCriteria();
@@ -68,7 +66,7 @@ public class BikeDeviceService {
 		else
 			return false;
 	}
-	@CacheEvict(value = { "bikeTel","hasBike" }, allEntries = true)
+
 	public boolean save(BikeDevice dev) {
 		// BikeDeviceExample example = new BikeDeviceExample();
 		// BikeDeviceExample.Criteria criteria = example.createCriteria();
@@ -92,7 +90,7 @@ public class BikeDeviceService {
 		else
 			return false;
 	}
-	@Cacheable
+
 	public BikeVersion getBikeVersionBy(String vendor, String product) {
 		BikeVersionExample bike = new BikeVersionExample();
 		BikeVersionExample.Criteria criteria = bike.createCriteria();

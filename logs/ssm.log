@@ -2195,3 +2195,87 @@ java.lang.ArrayIndexOutOfBoundsException
 ### The error may involve com.kaicom.dao.BikeDeviceMapper.countByExample
 ### The error occurred while executing a query
 ### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Access denied for user 'cgm'@'220.189.249.222' (using password: YES))
+[INFO] [2017-03-21 14:45:40][kaicom.test.sever.NettyServer]TCP服务启动完毕,port={18888}
+[INFO] [2017-03-21 14:45:43][kaicom.test.client.NettyClientHandler]channelActive
+[INFO] [2017-03-21 14:45:43][kaicom.test.client.NettyClientHandler]7e0100002c0200000000150025002c0133373039363054372d54383038000000000000000000000000003033323931373001d4c142383838387b7e
+[INFO] [2017-03-21 14:45:43][kaicom.test.client.NettyClientHandler]7e 01 00 00 2c 02 00 00 00 00 15 00 25 00 2c 01 33 37 30 39 36 30 54 37 2d 54 38 30 38 00 00 00 00 00 00 00 00 00 00 00 00 00 30 33 32 39 31 37 30 01 d4 c1 42 38 38 38 38 7b 7e 
+[INFO] [2017-03-21 14:45:43][kaicom.test.sever.NettyServerHandler]终端连接:{}Session [id=acb57dfffe55c629-0000116c-00000001-61d93b5cb23fbc6c-9d728315, terminalPhone=null, channel=[id: 0x9d728315, /192.168.10.1:60201 => /192.168.50.117:18888]]
+[INFO] [2017-03-21 14:45:43][com.kaicom.protocol.T808Message]接收:0100002c0200000000150025002c0133373039363054372d54383038000000000000000000000000003033323931373001d4c142383838387b
+[INFO] [2017-03-21 14:45:43][com.kaicom.protocol.T808Message]报文校验码:7b  计算校验码:7b
+[INFO] [2017-03-21 14:45:43][kaicom.test.sever.NettyServerHandler]省：44,市：307,制造商：70960，型号：T7-T808，终端：0329170，车辆类型：1，车辆标示:粤B8888iccid: 粤B8888 bt_mac: null 
+[INFO] [2017-03-21 14:45:43][ProtocolHandler##]server:com.kaicom.func.Protocol_0100[车辆手机号]20000000015
+[INFO] [2017-03-21 14:45:44][ProtocolHandler##]server:com.kaicom.func.Protocol_0100[分配鉴权码]1490078743725
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e81000010020000000015002500250031343930303738373433373235b57e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:81000010020000000015002500250031343930303738373433373235b5
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:b5  计算校验码:b5
+[INFO] [2017-03-21 14:45:44][kaicom.test.client.NettyClientHandler]注册结果:0,鉴权码:1490078743725
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e0102000d0200000000150025313439303037383734343339390b7e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:0102000d0200000000150025313439303037383734343339390b
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:0b  计算校验码:0b
+[INFO] [2017-03-21 14:45:44][kaicom.test.sever.NettyServerHandler]鉴权码：1490078744399
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e8001000502000000001500260000010200b67e
+[INFO] [2017-03-21 14:45:44][ProtocolHandler##]应答信息:{}Session [id=acb57dfffe55c629-0000116c-00000001-61d93b5cb23fbc6c-9d728315, terminalPhone=20000000015, channel=[id: 0x9d728315, /192.168.10.1:60201 => /192.168.50.117:18888]]
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:8001000502000000001500260000010200b6
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:b6  计算校验码:b6
+[INFO] [2017-03-21 14:45:44][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 14:45:44][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e81060019020000000015002606000000100000001300000018000000270000002800000029947e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:8106001902000000001500260600000010000000130000001800000027000000280000002994
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:94  计算校验码:94
+[INFO] [2017-03-21 14:45:44][kaicom.test.client.NettyClientHandler]com.kaicom.protocol.JT_8106@12515c17
+[INFO] [2017-03-21 14:45:44][ProtocolHandler##]client:com.kaicom.func.Protocol_8106 date time 170321144544
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e0104004102000000001500260000060000001005636e6e6574000000130b3139322e3136382e312e3200000018040000465000000027040000000500000028040000000200000029040000001e157e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e0200005d0200000000150026000000000000000001cdbb200729f4300032000f00af170321144544300114310110e104000003e8e2020007e3064b0000000000e41c01cc000252ce00008d7d020352c900008d7d010252c9000086f806e504000003e8e602012ce70201f4217e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:0104004102000000001500260000060000001005636e6e6574000000130b3139322e3136382e312e3200000018040000465000000027040000000500000028040000000200000029040000001e15
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:15  计算校验码:15
+[INFO] [2017-03-21 14:45:44][kaicom.test.sever.NettyServerHandler]JT_0104 [apn=cnnet, ip=192.168.1.2, port=18000, lock_upload_interval=5, lock_can_upload=2, upload_interval=30, gsonser_enable=0, gsonser_wakeup_upload_enable=0]
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:0200005d0200000000150026000000000000000001cdbb200729f4300032000f00af170321144544300114310110e104000003e8e2020007e3064b0000000000e41c01cc000252ce00008d7d020352c900008d7d010252c9000086f806e504000003e8e602012ce70201f421
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:21  计算校验码:21
+[INFO] [2017-03-21 14:45:44][kaicom.test.sever.NettyServerHandler]报警标示：0,状态：0,经度：120190000,纬度：30260000,高度：50,速度：15,时间：2017-03-21 14:45:44   |信号强度：20,卫星数：16,开锁次数：1000,电量：75,mcc：460,mnc：2,loc：21198,36222,3;21193,36221,2;21193,34552,6  |gsm版本：1000,bt版本：300,最后充电时间：500,锁状态：1,上传状态：3
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]发送:7e8001000502000000001500270000020000b67e
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]接收:8001000502000000001500270000020000b6
+[INFO] [2017-03-21 14:45:44][com.kaicom.protocol.T808Message]报文校验码:b6  计算校验码:b6
+[INFO] [2017-03-21 14:45:44][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000200
+[INFO] [2017-03-21 14:45:44][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000200
+[INFO] [2017-03-21 14:51:12][kaicom.test.sever.NettyServer]TCP服务启动完毕,port={18888}
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]channelActive
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]7e0100002c0200000000150025002c0133373039363054372d54383038000000000000000000000000003033323931373001d4c142383838387b7e
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]7e 01 00 00 2c 02 00 00 00 00 15 00 25 00 2c 01 33 37 30 39 36 30 54 37 2d 54 38 30 38 00 00 00 00 00 00 00 00 00 00 00 00 00 30 33 32 39 31 37 30 01 d4 c1 42 38 38 38 38 7b 7e 
+[INFO] [2017-03-21 14:51:16][kaicom.test.sever.NettyServerHandler]终端连接:{}Session [id=acb57dfffe55c629-00001f6c-00000001-a3d1bfc90fc0cf29-8f981b77, terminalPhone=null, channel=[id: 0x8f981b77, /192.168.10.1:61072 => /192.168.50.117:18888]]
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:0100002c0200000000150025002c0133373039363054372d54383038000000000000000000000000003033323931373001d4c142383838387b
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:7b  计算校验码:7b
+[INFO] [2017-03-21 14:51:16][kaicom.test.sever.NettyServerHandler]省：44,市：307,制造商：70960，型号：T7-T808，终端：0329170，车辆类型：1，车辆标示:粤B8888iccid: 粤B8888 bt_mac: null 
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]server:com.kaicom.func.Protocol_0100[车辆手机号]20000000015
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]server:com.kaicom.func.Protocol_0100[分配鉴权码]1490079076203
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e81000010020000000015002500250031343930303739303736323033b47e
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:81000010020000000015002500250031343930303739303736323033b4
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:b4  计算校验码:b4
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]注册结果:0,鉴权码:1490079076203
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e0102000d020000000015002531343930303739303736393030067e
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:0102000d02000000001500253134393030373930373639303006
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:06  计算校验码:06
+[INFO] [2017-03-21 14:51:16][kaicom.test.sever.NettyServerHandler]鉴权码：1490079076900
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e8001000502000000001500260000010200b67e
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]应答信息:{}Session [id=acb57dfffe55c629-00001f6c-00000001-a3d1bfc90fc0cf29-8f981b77, terminalPhone=20000000015, channel=[id: 0x8f981b77, /192.168.10.1:61072 => /192.168.50.117:18888]]
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:8001000502000000001500260000010200b6
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:b6  计算校验码:b6
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e81060019020000000015002606000000100000001300000018000000270000002800000029947e
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:8106001902000000001500260600000010000000130000001800000027000000280000002994
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:94  计算校验码:94
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]com.kaicom.protocol.JT_8106@3cf4b541
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]client:com.kaicom.func.Protocol_8106 date time 170321145116
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e0104004102000000001500260000060000001005636e6e6574000000130b3139322e3136382e312e3200000018040000465000000027040000000500000028040000000200000029040000001e157e
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e0200005d0200000000150026000000000000000001cdbb200729f4300032000f00af170321145116300114310110e104000003e8e2020007e3064b0000000000e41c01cc000252ce00008d7d020352c900008d7d010252c9000086f806e504000003e8e602012ce70201f4677e
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:0104004102000000001500260000060000001005636e6e6574000000130b3139322e3136382e312e3200000018040000465000000027040000000500000028040000000200000029040000001e15
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:15  计算校验码:15
+[INFO] [2017-03-21 14:51:16][kaicom.test.sever.NettyServerHandler]JT_0104 [apn=cnnet, ip=192.168.1.2, port=18000, lock_upload_interval=5, lock_can_upload=2, upload_interval=30, gsonser_enable=0, gsonser_wakeup_upload_enable=0]
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:0200005d0200000000150026000000000000000001cdbb200729f4300032000f00af170321145116300114310110e104000003e8e2020007e3064b0000000000e41c01cc000252ce00008d7d020352c900008d7d010252c9000086f806e504000003e8e602012ce70201f467
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:67  计算校验码:67
+[INFO] [2017-03-21 14:51:16][kaicom.test.sever.NettyServerHandler]报警标示：0,状态：0,经度：120190000,纬度：30260000,高度：50,速度：15,时间：2017-03-21 14:51:16   |信号强度：20,卫星数：16,开锁次数：1000,电量：75,mcc：460,mnc：2,loc：21198,36222,3;21193,36221,2;21193,34552,6  |gsm版本：1000,bt版本：300,最后充电时间：500,锁状态：1,上传状态：3
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]发送:7e8001000502000000001500270000020000b67e
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]接收:8001000502000000001500270000020000b6
+[INFO] [2017-03-21 14:51:16][com.kaicom.protocol.T808Message]报文校验码:b6  计算校验码:b6
+[INFO] [2017-03-21 14:51:16][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000200
+[INFO] [2017-03-21 14:51:16][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000200
