@@ -159,6 +159,15 @@ public class JT_0200 implements IMessageBody {
 	public final void setStrWarn(String value) {
 		strWarn = value;
 	}
+	private short cn;
+	
+	public short getCn() {
+		return cn;
+	}
+
+	public void setCn(short cn) {
+		this.cn = cn;
+	}
 
 	/**
 	 * 里程
@@ -475,6 +484,9 @@ public class JT_0200 implements IMessageBody {
 		/*logger.info("附加协议:" + Tools.ToHexString(id) + ",附加长度:"
 				+ len);*/
 		switch(id){
+		case 0x02:
+			cn = (short) (buf.getShort()&0xffff);
+			break;
 		case 0x30:
 			 signal_db = (byte) (buf.get()&0xff);
 			break;

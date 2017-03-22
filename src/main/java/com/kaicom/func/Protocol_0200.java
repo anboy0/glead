@@ -82,6 +82,9 @@ public class Protocol_0200 implements ProtocolHandler {
 		location.setGsmVersion(loc.getGsm_version());
 		location.setVendor(bike.getVendor());
 		location.setProductId(bike.getProductId());
+		location.setAlarm(Tools.ToHexString(loc.getAlarmFlag()));
+		location.setCn(loc.getCn());
+		location.setGpsStatus(Tools.ToHexString(loc.getStatus()));
 		location.setCreateTime(new Date());
 		bikeDeviceService.save(location);
 		/**

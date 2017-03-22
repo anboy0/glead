@@ -3,9 +3,9 @@
 <mapper namespace="com.kaicom.dao.BikeLocationMapper">
   <resultMap id="BaseResultMap" type="com.kaicom.model.BikeLocation">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <id column="device_id" jdbcType="VARCHAR" property="deviceId" />
     <id column="vendor" jdbcType="VARCHAR" property="vendor" />
     <id column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
     <result column="lat" jdbcType="DOUBLE" property="lat" />
     <result column="lng" jdbcType="DOUBLE" property="lng" />
     <result column="bat_vol" jdbcType="TINYINT" property="batVol" />
@@ -24,6 +24,9 @@
     <result column="gsm_version" jdbcType="INTEGER" property="gsmVersion" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+    <result column="gps_status" jdbcType="VARCHAR" property="gpsStatus" />
+    <result column="cn" jdbcType="SMALLINT" property="cn" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -84,9 +87,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, device_id, vendor, product_id, lat, lng, bat_vol, alt, speed, course, time, signal_db, 
+    id, vendor, product_id, device_id, lat, lng, bat_vol, alt, speed, course, time, signal_db, 
     gnss, lock_status, upload_status, mcc, mnc, lac, bt_version, gsm_version, create_time, 
-    tel
+    tel, alarm, gps_status, cn
   </sql>
   <select id="selectByExample" parameterType="com.kaicom.model.BikeLocationExample" resultMap="BaseResultMap">
     select
@@ -107,14 +110,12 @@
     <include refid="Base_Column_List" />
     from kl_location
     where id = #{id,jdbcType=INTEGER}
-      and device_id = #{deviceId,jdbcType=VARCHAR}
       and vendor = #{vendor,jdbcType=VARCHAR}
       and product_id = #{productId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.kaicom.model.BikeLocationKey">
     delete from kl_location
     where id = #{id,jdbcType=INTEGER}
-      and device_id = #{deviceId,jdbcType=VARCHAR}
       and vendor = #{vendor,jdbcType=VARCHAR}
       and product_id = #{productId,jdbcType=VARCHAR}
   </delete>
@@ -125,21 +126,23 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kaicom.model.BikeLocation">
-    insert into kl_location (id, device_id, vendor, 
-      product_id, lat, lng, 
-      bat_vol, alt, speed, 
-      course, time, signal_db, 
-      gnss, lock_status, upload_status, 
-      mcc, mnc, lac, bt_version, 
-      gsm_version, create_time, tel
+    insert into kl_location (id, vendor, product_id, 
+      device_id, lat, lng, bat_vol, 
+      alt, speed, course, 
+      time, signal_db, gnss, 
+      lock_status, upload_status, mcc, 
+      mnc, lac, bt_version, 
+      gsm_version, create_time, tel, 
+      alarm, gps_status, cn
       )
-    values (#{id,jdbcType=INTEGER}, #{deviceId,jdbcType=VARCHAR}, #{vendor,jdbcType=VARCHAR}, 
-      #{productId,jdbcType=VARCHAR}, #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, 
-      #{batVol,jdbcType=TINYINT}, #{alt,jdbcType=SMALLINT}, #{speed,jdbcType=SMALLINT}, 
-      #{course,jdbcType=SMALLINT}, #{time,jdbcType=TIMESTAMP}, #{signalDb,jdbcType=TINYINT}, 
-      #{gnss,jdbcType=TINYINT}, #{lockStatus,jdbcType=TINYINT}, #{uploadStatus,jdbcType=TINYINT}, 
-      #{mcc,jdbcType=SMALLINT}, #{mnc,jdbcType=SMALLINT}, #{lac,jdbcType=VARCHAR}, #{btVersion,jdbcType=INTEGER}, 
-      #{gsmVersion,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{tel,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{vendor,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, 
+      #{deviceId,jdbcType=VARCHAR}, #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, #{batVol,jdbcType=TINYINT}, 
+      #{alt,jdbcType=SMALLINT}, #{speed,jdbcType=SMALLINT}, #{course,jdbcType=SMALLINT}, 
+      #{time,jdbcType=TIMESTAMP}, #{signalDb,jdbcType=TINYINT}, #{gnss,jdbcType=TINYINT}, 
+      #{lockStatus,jdbcType=TINYINT}, #{uploadStatus,jdbcType=TINYINT}, #{mcc,jdbcType=SMALLINT}, 
+      #{mnc,jdbcType=SMALLINT}, #{lac,jdbcType=VARCHAR}, #{btVersion,jdbcType=INTEGER}, 
+      #{gsmVersion,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{tel,jdbcType=VARCHAR}, 
+      #{alarm,jdbcType=VARCHAR}, #{gpsStatus,jdbcType=VARCHAR}, #{cn,jdbcType=SMALLINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kaicom.model.BikeLocation">
@@ -148,14 +151,14 @@
       <if test="id != null">
         id,
       </if>
-      <if test="deviceId != null">
-        device_id,
-      </if>
       <if test="vendor != null">
         vendor,
       </if>
       <if test="productId != null">
         product_id,
+      </if>
+      <if test="deviceId != null">
+        device_id,
       </if>
       <if test="lat != null">
         lat,
@@ -211,19 +214,28 @@
       <if test="tel != null">
         tel,
       </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+      <if test="gpsStatus != null">
+        gps_status,
+      </if>
+      <if test="cn != null">
+        cn,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
-      </if>
-      <if test="deviceId != null">
-        #{deviceId,jdbcType=VARCHAR},
       </if>
       <if test="vendor != null">
         #{vendor,jdbcType=VARCHAR},
       </if>
       <if test="productId != null">
         #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
       </if>
       <if test="lat != null">
         #{lat,jdbcType=DOUBLE},
@@ -279,6 +291,15 @@
       <if test="tel != null">
         #{tel,jdbcType=VARCHAR},
       </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsStatus != null">
+        #{gpsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null">
+        #{cn,jdbcType=SMALLINT},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.kaicom.model.BikeLocationExample" resultType="java.lang.Long">
@@ -293,14 +314,14 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.deviceId != null">
-        device_id = #{record.deviceId,jdbcType=VARCHAR},
-      </if>
       <if test="record.vendor != null">
         vendor = #{record.vendor,jdbcType=VARCHAR},
       </if>
       <if test="record.productId != null">
         product_id = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceId != null">
+        device_id = #{record.deviceId,jdbcType=VARCHAR},
       </if>
       <if test="record.lat != null">
         lat = #{record.lat,jdbcType=DOUBLE},
@@ -356,6 +377,15 @@
       <if test="record.tel != null">
         tel = #{record.tel,jdbcType=VARCHAR},
       </if>
+      <if test="record.alarm != null">
+        alarm = #{record.alarm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gpsStatus != null">
+        gps_status = #{record.gpsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cn != null">
+        cn = #{record.cn,jdbcType=SMALLINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -364,9 +394,9 @@
   <update id="updateByExample" parameterType="map">
     update kl_location
     set id = #{record.id,jdbcType=INTEGER},
-      device_id = #{record.deviceId,jdbcType=VARCHAR},
       vendor = #{record.vendor,jdbcType=VARCHAR},
       product_id = #{record.productId,jdbcType=VARCHAR},
+      device_id = #{record.deviceId,jdbcType=VARCHAR},
       lat = #{record.lat,jdbcType=DOUBLE},
       lng = #{record.lng,jdbcType=DOUBLE},
       bat_vol = #{record.batVol,jdbcType=TINYINT},
@@ -384,7 +414,10 @@
       bt_version = #{record.btVersion,jdbcType=INTEGER},
       gsm_version = #{record.gsmVersion,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      tel = #{record.tel,jdbcType=VARCHAR}
+      tel = #{record.tel,jdbcType=VARCHAR},
+      alarm = #{record.alarm,jdbcType=VARCHAR},
+      gps_status = #{record.gpsStatus,jdbcType=VARCHAR},
+      cn = #{record.cn,jdbcType=SMALLINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -392,6 +425,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kaicom.model.BikeLocation">
     update kl_location
     <set>
+      <if test="deviceId != null">
+        device_id = #{deviceId,jdbcType=VARCHAR},
+      </if>
       <if test="lat != null">
         lat = #{lat,jdbcType=DOUBLE},
       </if>
@@ -446,15 +482,24 @@
       <if test="tel != null">
         tel = #{tel,jdbcType=VARCHAR},
       </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsStatus != null">
+        gps_status = #{gpsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null">
+        cn = #{cn,jdbcType=SMALLINT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
-      and device_id = #{deviceId,jdbcType=VARCHAR}
       and vendor = #{vendor,jdbcType=VARCHAR}
       and product_id = #{productId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kaicom.model.BikeLocation">
     update kl_location
-    set lat = #{lat,jdbcType=DOUBLE},
+    set device_id = #{deviceId,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DOUBLE},
       lng = #{lng,jdbcType=DOUBLE},
       bat_vol = #{batVol,jdbcType=TINYINT},
       alt = #{alt,jdbcType=SMALLINT},
@@ -471,9 +516,11 @@
       bt_version = #{btVersion,jdbcType=INTEGER},
       gsm_version = #{gsmVersion,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      tel = #{tel,jdbcType=VARCHAR}
+      tel = #{tel,jdbcType=VARCHAR},
+      alarm = #{alarm,jdbcType=VARCHAR},
+      gps_status = #{gpsStatus,jdbcType=VARCHAR},
+      cn = #{cn,jdbcType=SMALLINT}
     where id = #{id,jdbcType=INTEGER}
-      and device_id = #{deviceId,jdbcType=VARCHAR}
       and vendor = #{vendor,jdbcType=VARCHAR}
       and product_id = #{productId,jdbcType=VARCHAR}
   </update>

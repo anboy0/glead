@@ -3,6 +3,8 @@ package com.kaicom.model;
 import java.util.Date;
 
 public class BikeLocation extends BikeLocationKey {
+    private String deviceId;
+
     private Double lat;
 
     private Double lng;
@@ -38,6 +40,20 @@ public class BikeLocation extends BikeLocationKey {
     private Date createTime;
 
     private String tel;
+
+    private String alarm;
+
+    private String gpsStatus;
+
+    private Short cn;
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId == null ? null : deviceId.trim();
+    }
 
     public Double getLat() {
         return lat;
@@ -181,5 +197,29 @@ public class BikeLocation extends BikeLocationKey {
 
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getAlarm() {
+        return alarm;
+    }
+
+    public void setAlarm(String alarm) {
+        this.alarm = alarm == null ? null : alarm.trim();
+    }
+
+    public String getGpsStatus() {
+        return gpsStatus;
+    }
+
+    public void setGpsStatus(String gpsStatus) {
+        this.gpsStatus = gpsStatus == null ? null : gpsStatus.trim();
+    }
+
+    public Short getCn() {
+        return cn;
+    }
+
+    public void setCn(Short cn) {
+        this.cn = cn;
     }
 }

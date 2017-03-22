@@ -57,7 +57,7 @@ public class BikeDeviceService {
 	public boolean update(BikeDevice dev) {
 		BikeDeviceExample example = new BikeDeviceExample();
 		BikeDeviceExample.Criteria criteria = example.createCriteria();
-		criteria.andIdEqualTo(dev.getId());
+		//criteria.andIdEqualTo(dev.getId());
 		criteria.andTelEqualTo(dev.getTel());
 		int i = bikeDeviceMapper.updateByExample(dev, example);
 

@@ -165,76 +165,6 @@ public class BikeLocationExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeviceIdIsNull() {
-            addCriterion("device_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdIsNotNull() {
-            addCriterion("device_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdEqualTo(String value) {
-            addCriterion("device_id =", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdNotEqualTo(String value) {
-            addCriterion("device_id <>", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdGreaterThan(String value) {
-            addCriterion("device_id >", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdGreaterThanOrEqualTo(String value) {
-            addCriterion("device_id >=", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdLessThan(String value) {
-            addCriterion("device_id <", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdLessThanOrEqualTo(String value) {
-            addCriterion("device_id <=", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdLike(String value) {
-            addCriterion("device_id like", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdNotLike(String value) {
-            addCriterion("device_id not like", value, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdIn(List<String> values) {
-            addCriterion("device_id in", values, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdNotIn(List<String> values) {
-            addCriterion("device_id not in", values, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdBetween(String value1, String value2) {
-            addCriterion("device_id between", value1, value2, "deviceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andDeviceIdNotBetween(String value1, String value2) {
-            addCriterion("device_id not between", value1, value2, "deviceId");
-            return (Criteria) this;
-        }
-
         public Criteria andVendorIsNull() {
             addCriterion("vendor is null");
             return (Criteria) this;
@@ -372,6 +302,76 @@ public class BikeLocationExample {
 
         public Criteria andProductIdNotBetween(String value1, String value2) {
             addCriterion("product_id not between", value1, value2, "productId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdIsNull() {
+            addCriterion("device_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdIsNotNull() {
+            addCriterion("device_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdEqualTo(String value) {
+            addCriterion("device_id =", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdNotEqualTo(String value) {
+            addCriterion("device_id <>", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdGreaterThan(String value) {
+            addCriterion("device_id >", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdGreaterThanOrEqualTo(String value) {
+            addCriterion("device_id >=", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdLessThan(String value) {
+            addCriterion("device_id <", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdLessThanOrEqualTo(String value) {
+            addCriterion("device_id <=", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdLike(String value) {
+            addCriterion("device_id like", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdNotLike(String value) {
+            addCriterion("device_id not like", value, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdIn(List<String> values) {
+            addCriterion("device_id in", values, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdNotIn(List<String> values) {
+            addCriterion("device_id not in", values, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdBetween(String value1, String value2) {
+            addCriterion("device_id between", value1, value2, "deviceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeviceIdNotBetween(String value1, String value2) {
+            addCriterion("device_id not between", value1, value2, "deviceId");
             return (Criteria) this;
         }
 
@@ -1472,6 +1472,206 @@ public class BikeLocationExample {
 
         public Criteria andTelNotBetween(String value1, String value2) {
             addCriterion("tel not between", value1, value2, "tel");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmIsNull() {
+            addCriterion("alarm is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmIsNotNull() {
+            addCriterion("alarm is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmEqualTo(String value) {
+            addCriterion("alarm =", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmNotEqualTo(String value) {
+            addCriterion("alarm <>", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmGreaterThan(String value) {
+            addCriterion("alarm >", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmGreaterThanOrEqualTo(String value) {
+            addCriterion("alarm >=", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmLessThan(String value) {
+            addCriterion("alarm <", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmLessThanOrEqualTo(String value) {
+            addCriterion("alarm <=", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmLike(String value) {
+            addCriterion("alarm like", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmNotLike(String value) {
+            addCriterion("alarm not like", value, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmIn(List<String> values) {
+            addCriterion("alarm in", values, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmNotIn(List<String> values) {
+            addCriterion("alarm not in", values, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmBetween(String value1, String value2) {
+            addCriterion("alarm between", value1, value2, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andAlarmNotBetween(String value1, String value2) {
+            addCriterion("alarm not between", value1, value2, "alarm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusIsNull() {
+            addCriterion("gps_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusIsNotNull() {
+            addCriterion("gps_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusEqualTo(String value) {
+            addCriterion("gps_status =", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusNotEqualTo(String value) {
+            addCriterion("gps_status <>", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusGreaterThan(String value) {
+            addCriterion("gps_status >", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("gps_status >=", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusLessThan(String value) {
+            addCriterion("gps_status <", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusLessThanOrEqualTo(String value) {
+            addCriterion("gps_status <=", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusLike(String value) {
+            addCriterion("gps_status like", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusNotLike(String value) {
+            addCriterion("gps_status not like", value, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusIn(List<String> values) {
+            addCriterion("gps_status in", values, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusNotIn(List<String> values) {
+            addCriterion("gps_status not in", values, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusBetween(String value1, String value2) {
+            addCriterion("gps_status between", value1, value2, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andGpsStatusNotBetween(String value1, String value2) {
+            addCriterion("gps_status not between", value1, value2, "gpsStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnIsNull() {
+            addCriterion("cn is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnIsNotNull() {
+            addCriterion("cn is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnEqualTo(Short value) {
+            addCriterion("cn =", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnNotEqualTo(Short value) {
+            addCriterion("cn <>", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnGreaterThan(Short value) {
+            addCriterion("cn >", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnGreaterThanOrEqualTo(Short value) {
+            addCriterion("cn >=", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnLessThan(Short value) {
+            addCriterion("cn <", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnLessThanOrEqualTo(Short value) {
+            addCriterion("cn <=", value, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnIn(List<Short> values) {
+            addCriterion("cn in", values, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnNotIn(List<Short> values) {
+            addCriterion("cn not in", values, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnBetween(Short value1, Short value2) {
+            addCriterion("cn between", value1, value2, "cn");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnNotBetween(Short value1, Short value2) {
+            addCriterion("cn not between", value1, value2, "cn");
             return (Criteria) this;
         }
     }

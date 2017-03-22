@@ -3,8 +3,6 @@ package com.kaicom.model;
 public class BikeLocationKey {
     private Integer id;
 
-    private String deviceId;
-
     private String vendor;
 
     private String productId;
@@ -15,14 +13,6 @@ public class BikeLocationKey {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getDeviceId() {
-        return deviceId;
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId == null ? null : deviceId.trim();
     }
 
     public String getVendor() {
