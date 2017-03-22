@@ -95,7 +95,7 @@ public class Protocol_0200 implements ProtocolHandler {
 			if (version.getGsmVersion() != null && version.getGsmVersion() > bike.getGsmVersion()) {
 				backMsg = handlerGsmVersion(version);
 			} else {
-				if (bike.getBtVersion() != null)
+				if (bike.getBtVersion() != null && version.getBtVersion() > bike.getBtVersion())
 					backMsg = handlerBtVersion(version);
 			}
 		}

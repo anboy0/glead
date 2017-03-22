@@ -5185,3 +5185,25 @@ java.lang.ArrayIndexOutOfBoundsException
 [INFO] [2017-03-21 22:01:09][com.kaicom.protocol.T808Message]报文校验码:91  计算校验码:91
 [INFO] [2017-03-21 22:01:09][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000200
 [INFO] [2017-03-21 22:01:09][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000200
+[INFO] [2017-03-21 22:07:30][kaicom.test.sever.NettyServer]TCP服务启动完毕,port={18888}
+[INFO] [2017-03-21 22:07:31][kaicom.test.sever.NettyServer]TCP服务启动出错:{Address already in use: bind}
+[INFO] [2017-03-21 22:07:43][kaicom.test.client.NettyClientHandler]channelActive
+[INFO] [2017-03-21 22:07:43][kaicom.test.client.NettyClientHandler]7e0100002c0200000000150025002c0133373039363054372d54383038000000000000000000000000003033323931373001d4c142383838387b7e
+[INFO] [2017-03-21 22:07:43][kaicom.test.client.NettyClientHandler]7e 01 00 00 2c 02 00 00 00 00 15 00 25 00 2c 01 33 37 30 39 36 30 54 37 2d 54 38 30 38 00 00 00 00 00 00 00 00 00 00 00 00 00 30 33 32 39 31 37 30 01 d4 c1 42 38 38 38 38 7b 7e 
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]接收:81000010020000000015002500250031343930313035323633393837bf
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]报文校验码:bf  计算校验码:bf
+[INFO] [2017-03-21 22:07:44][kaicom.test.client.NettyClientHandler]注册结果:0,鉴权码:1490105263987
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]发送:7e0102000d020000000015002531343930313035323634303230067e
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]接收:800100050200000000150025002501020090
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]报文校验码:90  计算校验码:90
+[INFO] [2017-03-21 22:07:44][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 22:07:44][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000102
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]接收:8106001902000000001500250600000010000000130000001800000027000000280000002997
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]报文校验码:97  计算校验码:97
+[INFO] [2017-03-21 22:07:44][kaicom.test.client.NettyClientHandler]com.kaicom.protocol.JT_8106@289a86e4
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]发送:7e0104004102000000001500250000060000001005636e6e6574000000130b3139322e3136382e312e3200000018040000465000000027040000000500000028040000000200000029040000001e167e
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]发送:7e0200005d0200000000150025000000000000000001cdbb200729f4300032000f00af170321220744300114310110e104000003e8e2020007e3064b0000000000e41c01cc000252ce00008d7d020352c900008d7d010252c9000086f806e504000003e8e602012ce70201f4567e
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]接收:800100050200000000150025002502000091
+[INFO] [2017-03-21 22:07:44][com.kaicom.protocol.T808Message]报文校验码:91  计算校验码:91
+[INFO] [2017-03-21 22:07:44][kaicom.test.client.NettyClientHandler]应答结果:0 应答ID:00000200
+[INFO] [2017-03-21 22:07:44][ProtocolHandler##]client:com.kaicom.func.Protocol_8001应答结果:0 应答ID:00000200

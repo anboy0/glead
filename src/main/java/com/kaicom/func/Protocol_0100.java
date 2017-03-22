@@ -43,7 +43,7 @@ public class Protocol_0100 implements ProtocolHandler{
 		
 		//BikeDevice devices= bikeDeviceService.getBikeFromTel("15168325465");
 		//logger.info("server:"+this.getClass().getName()+"[设备信息]"+devices);
-		logger.info("server:"+this.getClass().getName()+"[车辆手机号]"+msg.getSimNo());
+		//logger.info("server:"+this.getClass().getName()+"[车辆手机号]"+msg.getSimNo());
 
 		JT_8100 register = new JT_8100();
 		long registerNo = System.currentTimeMillis();
@@ -83,7 +83,7 @@ public class Protocol_0100 implements ProtocolHandler{
 		 * 数据库中查询该设备是否已注册.并返回响应的数据
 		 * 
 		 */
-		logger.info("server:"+this.getClass().getName()+"[分配鉴权码]"+registerNo);
+		logger.info("server:"+this.getClass().getName()+"[分配鉴权码]"+registerNo+"[车辆手机号]"+msg.getSimNo());
 		return register;
 		
 	}
