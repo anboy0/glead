@@ -59,6 +59,7 @@ public class BikeDeviceService {
 		BikeDeviceExample.Criteria criteria = example.createCriteria();
 		//criteria.andIdEqualTo(dev.getId());
 		criteria.andTelEqualTo(dev.getTel());
+		//criteria.andConfigChangedEqualTo((byte) 0);
 		int i = bikeDeviceMapper.updateByExample(dev, example);
 
 		if (i > 0)

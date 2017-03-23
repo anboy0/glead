@@ -14,7 +14,7 @@ public class App
 	
     public static void main( String[] args )
     {
-        System.out.println( "this is common version!" );
+        System.out.println( "this is common version v1.0!" );
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         NettyServer server = ctx.getBean(NettyServer.class);
         try {

@@ -127,7 +127,7 @@ public class NettyServer {
 		this.port = port;
 	}
 	public static void main(String[] args) throws Exception {
-		System.out.println("hello main");
+		System.out.println("hello main v1.0.1");
 		NettyServer server = new NettyServer(20048);
 		server.startServer();
 
