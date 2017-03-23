@@ -525,52 +525,52 @@ public class BikeDeviceExample {
             return (Criteria) this;
         }
 
-        public Criteria andPortEqualTo(Short value) {
+        public Criteria andPortEqualTo(Integer value) {
             addCriterion("port =", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortNotEqualTo(Short value) {
+        public Criteria andPortNotEqualTo(Integer value) {
             addCriterion("port <>", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortGreaterThan(Short value) {
+        public Criteria andPortGreaterThan(Integer value) {
             addCriterion("port >", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortGreaterThanOrEqualTo(Short value) {
+        public Criteria andPortGreaterThanOrEqualTo(Integer value) {
             addCriterion("port >=", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortLessThan(Short value) {
+        public Criteria andPortLessThan(Integer value) {
             addCriterion("port <", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortLessThanOrEqualTo(Short value) {
+        public Criteria andPortLessThanOrEqualTo(Integer value) {
             addCriterion("port <=", value, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortIn(List<Short> values) {
+        public Criteria andPortIn(List<Integer> values) {
             addCriterion("port in", values, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortNotIn(List<Short> values) {
+        public Criteria andPortNotIn(List<Integer> values) {
             addCriterion("port not in", values, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortBetween(Short value1, Short value2) {
+        public Criteria andPortBetween(Integer value1, Integer value2) {
             addCriterion("port between", value1, value2, "port");
             return (Criteria) this;
         }
 
-        public Criteria andPortNotBetween(Short value1, Short value2) {
+        public Criteria andPortNotBetween(Integer value1, Integer value2) {
             addCriterion("port not between", value1, value2, "port");
             return (Criteria) this;
         }

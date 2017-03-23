@@ -7,7 +7,7 @@ public class BikeDevice extends BikeDeviceKey {
 
     private String ip;
 
-    private Short port;
+    private Integer port;
 
     private Short uploadInterval;
 
@@ -83,11 +83,11 @@ public class BikeDevice extends BikeDeviceKey {
         this.ip = ip == null ? null : ip.trim();
     }
 
-    public Short getPort() {
+    public Integer getPort() {
         return port;
     }
 
-    public void setPort(Short port) {
+    public void setPort(Integer port) {
         this.port = port;
     }
 

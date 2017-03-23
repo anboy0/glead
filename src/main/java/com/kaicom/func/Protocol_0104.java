@@ -32,7 +32,7 @@ public class Protocol_0104 implements ProtocolHandler {
 		if (par.getParametersCount() > (byte)0) {
 			BikeDevice dev = session.getBike();
 			dev.setApn(par.getApn());
-			dev.setPort((short) par.getPort());
+			dev.setPort(((int) par.getPort() ) &0xffff);
 			dev.setIp(par.getIp());
 			dev.setLockUploadInterval((short) par.getLock_upload_interval());
 			dev.setLockCanUpload((short) par.getLock_can_upload());

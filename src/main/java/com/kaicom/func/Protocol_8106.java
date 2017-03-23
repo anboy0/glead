@@ -72,7 +72,7 @@ public class Protocol_8106 implements ProtocolHandler{
 		ParameterItem port = new ParameterItem();
 		port.setParameterId(0x18);
 		port.setParameterLength((byte)4);
-		port.setParameterValue(18000);
+		port.setParameterValue(60665);
 		items.add(port);
 		ParameterItem lock_upload_interval = new ParameterItem();
 		lock_upload_interval.setParameterId(0x27);
