@@ -8,7 +8,7 @@
     <id column="device_id" jdbcType="VARCHAR" property="deviceId" />
     <result column="apn" jdbcType="VARCHAR" property="apn" />
     <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="port" jdbcType="SMALLINT" property="port" />
+    <result column="port" jdbcType="INTEGER" property="port" />
     <result column="upload_interval" jdbcType="SMALLINT" property="uploadInterval" />
     <result column="lock_can_upload" jdbcType="SMALLINT" property="lockCanUpload" />
     <result column="lock_upload_interval" jdbcType="SMALLINT" property="lockUploadInterval" />
@@ -38,6 +38,9 @@
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="last_charge" jdbcType="SMALLINT" property="lastCharge" />
     <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="group_ids" jdbcType="VARCHAR" property="groupIds" />
+    <result column="trans" jdbcType="VARCHAR" property="trans" />
+    <result column="receive" jdbcType="VARCHAR" property="receive" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -102,7 +105,7 @@
     lock_upload_interval, gsonser_enable, gsonser_wakeup_upload_enable, led, unlock_times, 
     lock_status, gsm_version, bt_version, charge_status, bt_key, bt_pwd, province, city, 
     type, bt_mac, iccid, reg_time, is_reg, status, upload_time, lat, lng, bat_vol, config_changed, 
-    tel, last_charge, group_id
+    tel, last_charge, group_id, group_ids, trans, receive
   </sql>
   <select id="selectByExample" parameterType="com.kaicom.model.BikeDeviceExample" resultMap="BaseResultMap">
     select
@@ -152,11 +155,12 @@
       iccid, reg_time, is_reg, 
       status, upload_time, lat, 
       lng, bat_vol, config_changed, 
-      tel, last_charge, group_id
+      tel, last_charge, group_id, 
+      group_ids, trans, receive
       )
     values (#{id,jdbcType=INTEGER}, #{vendor,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, 
       #{deviceId,jdbcType=VARCHAR}, #{apn,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
-      #{port,jdbcType=SMALLINT}, #{uploadInterval,jdbcType=SMALLINT}, #{lockCanUpload,jdbcType=SMALLINT}, 
+      #{port,jdbcType=INTEGER}, #{uploadInterval,jdbcType=SMALLINT}, #{lockCanUpload,jdbcType=SMALLINT}, 
       #{lockUploadInterval,jdbcType=SMALLINT}, #{gsonserEnable,jdbcType=TINYINT}, #{gsonserWakeupUploadEnable,jdbcType=TINYINT}, 
       #{led,jdbcType=VARCHAR}, #{unlockTimes,jdbcType=INTEGER}, #{lockStatus,jdbcType=SMALLINT}, 
       #{gsmVersion,jdbcType=INTEGER}, #{btVersion,jdbcType=INTEGER}, #{chargeStatus,jdbcType=TINYINT}, 
@@ -165,7 +169,8 @@
       #{iccid,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}, #{isReg,jdbcType=TINYINT}, 
       #{status,jdbcType=TINYINT}, #{uploadTime,jdbcType=TIMESTAMP}, #{lat,jdbcType=DOUBLE}, 
       #{lng,jdbcType=DOUBLE}, #{batVol,jdbcType=TINYINT}, #{configChanged,jdbcType=TINYINT}, 
-      #{tel,jdbcType=VARCHAR}, #{lastCharge,jdbcType=SMALLINT}, #{groupId,jdbcType=INTEGER}
+      #{tel,jdbcType=VARCHAR}, #{lastCharge,jdbcType=SMALLINT}, #{groupId,jdbcType=INTEGER}, 
+      #{groupIds,jdbcType=VARCHAR}, #{trans,jdbcType=VARCHAR}, #{receive,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kaicom.model.BikeDevice">
@@ -279,6 +284,15 @@
       <if test="groupId != null">
         group_id,
       </if>
+      <if test="groupIds != null">
+        group_ids,
+      </if>
+      <if test="trans != null">
+        trans,
+      </if>
+      <if test="receive != null">
+        receive,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -300,7 +314,7 @@
         #{ip,jdbcType=VARCHAR},
       </if>
       <if test="port != null">
-        #{port,jdbcType=SMALLINT},
+        #{port,jdbcType=INTEGER},
       </if>
       <if test="uploadInterval != null">
         #{uploadInterval,jdbcType=SMALLINT},
@@ -389,6 +403,15 @@
       <if test="groupId != null">
         #{groupId,jdbcType=INTEGER},
       </if>
+      <if test="groupIds != null">
+        #{groupIds,jdbcType=VARCHAR},
+      </if>
+      <if test="trans != null">
+        #{trans,jdbcType=VARCHAR},
+      </if>
+      <if test="receive != null">
+        #{receive,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.kaicom.model.BikeDeviceExample" resultType="java.lang.Long">
@@ -419,7 +442,7 @@
         ip = #{record.ip,jdbcType=VARCHAR},
       </if>
       <if test="record.port != null">
-        port = #{record.port,jdbcType=SMALLINT},
+        port = #{record.port,jdbcType=INTEGER},
       </if>
       <if test="record.uploadInterval != null">
         upload_interval = #{record.uploadInterval,jdbcType=SMALLINT},
@@ -508,6 +531,15 @@
       <if test="record.groupId != null">
         group_id = #{record.groupId,jdbcType=INTEGER},
       </if>
+      <if test="record.groupIds != null">
+        group_ids = #{record.groupIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trans != null">
+        trans = #{record.trans,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receive != null">
+        receive = #{record.receive,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -521,7 +553,7 @@
       device_id = #{record.deviceId,jdbcType=VARCHAR},
       apn = #{record.apn,jdbcType=VARCHAR},
       ip = #{record.ip,jdbcType=VARCHAR},
-      port = #{record.port,jdbcType=SMALLINT},
+      port = #{record.port,jdbcType=INTEGER},
       upload_interval = #{record.uploadInterval,jdbcType=SMALLINT},
       lock_can_upload = #{record.lockCanUpload,jdbcType=SMALLINT},
       lock_upload_interval = #{record.lockUploadInterval,jdbcType=SMALLINT},
@@ -550,7 +582,10 @@
       config_changed = #{record.configChanged,jdbcType=TINYINT},
       tel = #{record.tel,jdbcType=VARCHAR},
       last_charge = #{record.lastCharge,jdbcType=SMALLINT},
-      group_id = #{record.groupId,jdbcType=INTEGER}
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      group_ids = #{record.groupIds,jdbcType=VARCHAR},
+      trans = #{record.trans,jdbcType=VARCHAR},
+      receive = #{record.receive,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -565,7 +600,7 @@
         ip = #{ip,jdbcType=VARCHAR},
       </if>
       <if test="port != null">
-        port = #{port,jdbcType=SMALLINT},
+        port = #{port,jdbcType=INTEGER},
       </if>
       <if test="uploadInterval != null">
         upload_interval = #{uploadInterval,jdbcType=SMALLINT},
@@ -654,6 +689,15 @@
       <if test="groupId != null">
         group_id = #{groupId,jdbcType=INTEGER},
       </if>
+      <if test="groupIds != null">
+        group_ids = #{groupIds,jdbcType=VARCHAR},
+      </if>
+      <if test="trans != null">
+        trans = #{trans,jdbcType=VARCHAR},
+      </if>
+      <if test="receive != null">
+        receive = #{receive,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
       and vendor = #{vendor,jdbcType=VARCHAR}
@@ -664,7 +708,7 @@
     update kl_devices
     set apn = #{apn,jdbcType=VARCHAR},
       ip = #{ip,jdbcType=VARCHAR},
-      port = #{port,jdbcType=SMALLINT},
+      port = #{port,jdbcType=INTEGER},
       upload_interval = #{uploadInterval,jdbcType=SMALLINT},
       lock_can_upload = #{lockCanUpload,jdbcType=SMALLINT},
       lock_upload_interval = #{lockUploadInterval,jdbcType=SMALLINT},
@@ -693,7 +737,10 @@
       config_changed = #{configChanged,jdbcType=TINYINT},
       tel = #{tel,jdbcType=VARCHAR},
       last_charge = #{lastCharge,jdbcType=SMALLINT},
-      group_id = #{groupId,jdbcType=INTEGER}
+      group_id = #{groupId,jdbcType=INTEGER},
+      group_ids = #{groupIds,jdbcType=VARCHAR},
+      trans = #{trans,jdbcType=VARCHAR},
+      receive = #{receive,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
       and vendor = #{vendor,jdbcType=VARCHAR}
       and product_id = #{productId,jdbcType=VARCHAR}

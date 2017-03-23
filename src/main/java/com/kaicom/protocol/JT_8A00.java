@@ -10,7 +10,7 @@ public class JT_8A00 implements IMessageBody
 	 透传消息类型
 	 
 	*/
-	private byte messageType;
+	/*private byte messageType;
 	public final byte getMessageType()
 	{
 		return messageType;
@@ -18,7 +18,7 @@ public class JT_8A00 implements IMessageBody
 	public final void setMessageType(byte value)
 	{
 		messageType = value;
-	}
+	}*/
 	/** 
 	 透传消息内容
 	 
@@ -51,16 +51,16 @@ public class JT_8A00 implements IMessageBody
 	}
 	public final byte[] WriteToBytes()
 	{
-		byte[] bytes = new byte[23];
-		bytes[0] = getMessageType();
-		System.arraycopy(getBtPwd(), 0, bytes, 1, btPwd.length);
-		System.arraycopy(btKey, 0, bytes, 7, btKey.length);
+		byte[] bytes = new byte[22];
+		//bytes[0] = getMessageType();
+		System.arraycopy(getBtPwd(), 0, bytes, 0, btPwd.length);
+		System.arraycopy(btKey, 0, bytes, 6, btKey.length);
 		return bytes;
 	}
 
 	public final void ReadFromBytes(byte[] bytes)
 	{
-		setMessageType(bytes[0]);
+		//setMessageType(bytes[0]);
 		//setMessageContent(new byte[bytes.length - 1]);
 		//setBtPwd(new byte[bytes.length - 1]);
 		btKey = new byte[16];

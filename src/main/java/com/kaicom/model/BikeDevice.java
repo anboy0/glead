@@ -67,6 +67,12 @@ public class BikeDevice extends BikeDeviceKey {
 
     private Integer groupId;
 
+    private String groupIds;
+
+    private String trans;
+
+    private String receive;
+
     public String getApn() {
         return apn;
     }
@@ -321,5 +327,29 @@ public class BikeDevice extends BikeDeviceKey {
 
     public void setGroupId(Integer groupId) {
         this.groupId = groupId;
+    }
+
+    public String getGroupIds() {
+        return groupIds;
+    }
+
+    public void setGroupIds(String groupIds) {
+        this.groupIds = groupIds == null ? null : groupIds.trim();
+    }
+
+    public String getTrans() {
+        return trans;
+    }
+
+    public void setTrans(String trans) {
+        this.trans = trans == null ? null : trans.trim();
+    }
+
+    public String getReceive() {
+        return receive;
+    }
+
+    public void setReceive(String receive) {
+        this.receive = receive == null ? null : receive.trim();
     }
 }

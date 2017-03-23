@@ -53,6 +53,7 @@ public class Protocol_0200 implements ProtocolHandler {
 		bike.setLastCharge(loc.getLast_charge());
 		bike.setBatVol(loc.getBat_vol());
 		bike.setConfigChanged((byte) 0);
+		bike.setStatus((byte)1);
 		if (bike.getIsReg() == 1) {
 			
 			bikeDeviceService.update(bike);

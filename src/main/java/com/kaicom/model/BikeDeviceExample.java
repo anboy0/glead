@@ -2374,6 +2374,216 @@ public class BikeDeviceExample {
             addCriterion("group_id not between", value1, value2, "groupId");
             return (Criteria) this;
         }
+
+        public Criteria andGroupIdsIsNull() {
+            addCriterion("group_ids is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsIsNotNull() {
+            addCriterion("group_ids is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsEqualTo(String value) {
+            addCriterion("group_ids =", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsNotEqualTo(String value) {
+            addCriterion("group_ids <>", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsGreaterThan(String value) {
+            addCriterion("group_ids >", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsGreaterThanOrEqualTo(String value) {
+            addCriterion("group_ids >=", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsLessThan(String value) {
+            addCriterion("group_ids <", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsLessThanOrEqualTo(String value) {
+            addCriterion("group_ids <=", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsLike(String value) {
+            addCriterion("group_ids like", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsNotLike(String value) {
+            addCriterion("group_ids not like", value, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsIn(List<String> values) {
+            addCriterion("group_ids in", values, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsNotIn(List<String> values) {
+            addCriterion("group_ids not in", values, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsBetween(String value1, String value2) {
+            addCriterion("group_ids between", value1, value2, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdsNotBetween(String value1, String value2) {
+            addCriterion("group_ids not between", value1, value2, "groupIds");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransIsNull() {
+            addCriterion("trans is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransIsNotNull() {
+            addCriterion("trans is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransEqualTo(String value) {
+            addCriterion("trans =", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransNotEqualTo(String value) {
+            addCriterion("trans <>", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransGreaterThan(String value) {
+            addCriterion("trans >", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransGreaterThanOrEqualTo(String value) {
+            addCriterion("trans >=", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransLessThan(String value) {
+            addCriterion("trans <", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransLessThanOrEqualTo(String value) {
+            addCriterion("trans <=", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransLike(String value) {
+            addCriterion("trans like", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransNotLike(String value) {
+            addCriterion("trans not like", value, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransIn(List<String> values) {
+            addCriterion("trans in", values, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransNotIn(List<String> values) {
+            addCriterion("trans not in", values, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransBetween(String value1, String value2) {
+            addCriterion("trans between", value1, value2, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andTransNotBetween(String value1, String value2) {
+            addCriterion("trans not between", value1, value2, "trans");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveIsNull() {
+            addCriterion("receive is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveIsNotNull() {
+            addCriterion("receive is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveEqualTo(String value) {
+            addCriterion("receive =", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveNotEqualTo(String value) {
+            addCriterion("receive <>", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveGreaterThan(String value) {
+            addCriterion("receive >", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveGreaterThanOrEqualTo(String value) {
+            addCriterion("receive >=", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveLessThan(String value) {
+            addCriterion("receive <", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveLessThanOrEqualTo(String value) {
+            addCriterion("receive <=", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveLike(String value) {
+            addCriterion("receive like", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveNotLike(String value) {
+            addCriterion("receive not like", value, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveIn(List<String> values) {
+            addCriterion("receive in", values, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveNotIn(List<String> values) {
+            addCriterion("receive not in", values, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveBetween(String value1, String value2) {
+            addCriterion("receive between", value1, value2, "receive");
+            return (Criteria) this;
+        }
+
+        public Criteria andReceiveNotBetween(String value1, String value2) {
+            addCriterion("receive not between", value1, value2, "receive");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
