@@ -97,6 +97,17 @@ public class Protocol_0102 implements ProtocolHandler {
 		upload_interval.setParameterLength((byte) 4);
 		upload_interval.setParameterValue(bike.getUploadInterval());
 		items.add(upload_interval);
+		ParameterItem gsonsor = new ParameterItem();
+		gsonsor.setParameterId(0xe000);
+		gsonsor.setParameterLength((byte) 1);
+		gsonsor.setParameterValue(bike.getGsonserEnable());
+		items.add(gsonsor);
+		ParameterItem gsonser_awake = new ParameterItem();
+		gsonser_awake.setParameterId(0xe001);
+		gsonser_awake.setParameterLength((byte) 1);
+		gsonser_awake.setParameterValue(bike.getGsonserWakeupUploadEnable());
+		items.add(gsonser_awake);
+		
 		msg.setParameters(items);
 		msg.setParametersCount((byte) items.size());
 		return msg;
@@ -111,9 +122,11 @@ public class Protocol_0102 implements ProtocolHandler {
 		items.add(0x27);
 		items.add(0x28);
 		items.add(0x29);
+
+		items.add(0xe000);
+		items.add(0xe001);
 		/*
-		 * items.add(0xe000); items.add(0xe001); items.add(0xf000);
-		 * items.add(0xf001);
+		 * items.add(0xf000); items.add(0xf001);
 		 */
 		msg.setParametersCount((byte) items.size());
 		msg.setParametersIDs(items);

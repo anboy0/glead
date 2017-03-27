@@ -41,19 +41,25 @@ public class Protocol_0001 implements ProtocolHandler{
 		{
 		case 0x8103:
 			sessionManager = SessionManager.getInstance();
-			Session dev = sessionManager.findBySessionId(chn.id().asLongText());
+			//Session dev = sessionManager.findBySessionId(chn.id().asLongText());
 			BikeDevice devices= bikeDeviceService.getBikeFromTel(msg.getSimNo());
 			
-			return configBt(devices);
-		case 0x8108:
-			logger.info("server "+this.getClass().getName()+" client recevie update info");
-			break;
+			if(devices.getBtKey()!=null && devices.getBtPwd()!=null) {
+				return configBt(devices);
+			}
+		
 		case 0x8a00:
 			//logger.info("server "+this.getClass().getName()+" wait for location info");
 			
 			BikeDevice devices2= bikeDeviceService.getBikeFromTel(msg.getSimNo());
-			
-			return sendTrans(devices2);
+			if(devices2.getTrans()!=null) {
+				return sendTrans(devices2);
+			}
+			logger.info("server "+this.getClass().getName()+" not  config info wait for location info");
+			break ;
+		case 0x8108:
+			logger.info("server "+this.getClass().getName()+" client recevie update info");
+			break;
 		case 0x8900:
 			logger.info("server "+this.getClass().getName()+" trans over wait for location info");
 		}
