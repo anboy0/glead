@@ -58,10 +58,21 @@ public class Protocol_0100 implements ProtocolHandler{
 			//register.setRegisterResponseResult(CAR_REGISTER);
 			register.setRegisterResponseResult(SUCCESS);
 			BikeDevice devices= bikeDeviceService.getBikeFromTel(msg.getSimNo());
+			JT_0100 _bike = (JT_0100) msg.getMessageContents();
+			logger.info("server:"+this.getClass().getName()+"New Device:"+msg.getSimNo());
+			devices.setProvince(_bike.getProvinceId());
+			devices.setCity(_bike.getCityId());
+			devices.setVendor(_bike.getManufactureId());
+			devices.setProductId(_bike.getProductlNo());
+			devices.setDeviceId(_bike.getDeviceId());
+			devices.setType(_bike.getType());
+			devices.setBtMac(_bike.getBt_mac());
+			
 			dev.setBike(devices);
 		} else {
 			register.setRegisterResponseResult(SUCCESS);
 			BikeDevice info = new BikeDevice();
+			
 			JT_0100 _bike = (JT_0100) msg.getMessageContents();
 			info.setProvince(_bike.getProvinceId());
 			info.setCity(_bike.getCityId());
@@ -75,6 +86,7 @@ public class Protocol_0100 implements ProtocolHandler{
 			info.setChargeStatus((byte)0);
 			info.setIsReg((byte)0);
 			dev.setBike(info);
+			logger.info("server:"+this.getClass().getName()+"Origin Device:"+msg.getSimNo());
 		}
 		sessionManager.put(chn.id().asLongText(), dev);
 		/**

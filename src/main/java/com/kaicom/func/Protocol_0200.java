@@ -55,11 +55,12 @@ public class Protocol_0200 implements ProtocolHandler {
 		bike.setConfigChanged((byte) 0);
 		bike.setStatus((byte)1);
 		if (bike.getIsReg() == 1) {
-			
+			logger.info("server:"+this.getClass().getName()+"update Device info");
 			bikeDeviceService.update(bike);
 		} else {
 			bike.setIsReg((byte) 1);
 			bike.setRegTime(new Date());
+			logger.info("server:"+this.getClass().getName()+"insert Device info");
 			bikeDeviceService.save(bike);
 		}
 		BikeLocation location = new BikeLocation();
