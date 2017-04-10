@@ -11,7 +11,6 @@ import com.kaicom.func.ProtocolFactory;
 import com.kaicom.func.ProtocolHandler;
 import com.kaicom.model.BikeDevice;
 import com.kaicom.protocol.T808Message;
-import com.kaicom.service.AppVersionService;
 import com.kaicom.service.BikeDeviceService;
 import com.kaicom.tool.ClassUtils;
 import com.kaicom.tool.Session;
@@ -68,7 +67,7 @@ public class NettyServerHandler extends ChannelHandlerAdapter { // (1)
 	 */
 	private void processPackageData(T808Message packageData,Object service,Channel chn) {
 		//logger.info(packageData.getMessageContents().toString());
-		if(packageData.getMessageType()!=0x2)
+		if(packageData.getMessageType()!=0x2&&packageData.getMessageType()!=0x0108)
 		{
 			logger.info(packageData.getMessageContents().toString());
 		}

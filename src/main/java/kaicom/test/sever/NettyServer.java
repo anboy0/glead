@@ -65,7 +65,7 @@ public class NettyServer {
 						@Override
 						public void initChannel(SocketChannel ch) throws Exception {
 							ch.pipeline().addLast("idleStateHandler",
-									new IdleStateHandler(30, 0, 0, TimeUnit.MINUTES));
+									new IdleStateHandler(300, 300, 300, TimeUnit.SECONDS));
 							// 1024表示单条消息的最大长度，解码器在查找分隔符的时候，达到该长度还没找到的话会抛异常
 							ch.pipeline().addLast(
 									new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),

@@ -2584,6 +2584,76 @@ public class BikeDeviceExample {
             addCriterion("receive not between", value1, value2, "receive");
             return (Criteria) this;
         }
+
+        public Criteria andTtsIsNull() {
+            addCriterion("tts is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsIsNotNull() {
+            addCriterion("tts is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsEqualTo(String value) {
+            addCriterion("tts =", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsNotEqualTo(String value) {
+            addCriterion("tts <>", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsGreaterThan(String value) {
+            addCriterion("tts >", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsGreaterThanOrEqualTo(String value) {
+            addCriterion("tts >=", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsLessThan(String value) {
+            addCriterion("tts <", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsLessThanOrEqualTo(String value) {
+            addCriterion("tts <=", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsLike(String value) {
+            addCriterion("tts like", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsNotLike(String value) {
+            addCriterion("tts not like", value, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsIn(List<String> values) {
+            addCriterion("tts in", values, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsNotIn(List<String> values) {
+            addCriterion("tts not in", values, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsBetween(String value1, String value2) {
+            addCriterion("tts between", value1, value2, "tts");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtsNotBetween(String value1, String value2) {
+            addCriterion("tts not between", value1, value2, "tts");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

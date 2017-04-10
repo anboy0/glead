@@ -36,7 +36,7 @@ public class BikeDeviceService {
 		example.setOrderByClause("reg_time desc");
 
 		List<BikeDevice> bike = bikeDeviceMapper.selectByExample(example);
-		if (bike != null)
+		if (bike != null &&bike.size()>0 )
 			return bike.get(0);
 		else
 			return null;

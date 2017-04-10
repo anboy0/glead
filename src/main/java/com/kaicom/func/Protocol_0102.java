@@ -13,6 +13,8 @@ import com.kaicom.protocol.T808MessageHeader;
 import com.kaicom.service.BikeDeviceService;
 import com.kaicom.tool.Session;
 import com.kaicom.tool.SessionManager;
+import com.kaicom.tool.StringUtil;
+import com.kaicom.tool.Tools;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -107,6 +109,22 @@ public class Protocol_0102 implements ProtocolHandler {
 		gsonser_awake.setParameterLength((byte) 1);
 		gsonser_awake.setParameterValue(bike.getGsonserWakeupUploadEnable());
 		items.add(gsonser_awake);
+		if(bike.getTts()!=null && bike.getTts().length()>0)
+		{
+			ParameterItem tts = new ParameterItem();
+			tts.setParameterId(0xF001);
+			tts.setParameterLength((byte)(bike.getTts().length()/2));
+			tts.setParameterValue(Tools.HexString2Bytes(bike.getTts()));
+			items.add(tts);
+		}
+		if(bike.getLed()!=null && bike.getLed().length()>0)
+		{
+			ParameterItem tts = new ParameterItem();
+			tts.setParameterId(0xF002);
+			tts.setParameterLength((byte)(bike.getLed().length()/2));
+			tts.setParameterValue(Tools.HexString2Bytes(bike.getLed()));
+			items.add(tts);
+		}
 		
 		msg.setParameters(items);
 		msg.setParametersCount((byte) items.size());

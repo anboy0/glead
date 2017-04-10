@@ -73,6 +73,8 @@ public class BikeDevice extends BikeDeviceKey {
 
     private String receive;
 
+    private String tts;
+
     public String getApn() {
         return apn;
     }
@@ -351,5 +353,13 @@ public class BikeDevice extends BikeDeviceKey {
 
     public void setReceive(String receive) {
         this.receive = receive == null ? null : receive.trim();
+    }
+
+    public String getTts() {
+        return tts;
+    }
+
+    public void setTts(String tts) {
+        this.tts = tts == null ? null : tts.trim();
     }
 }
