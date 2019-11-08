@@ -20,9 +20,6 @@ import java.util.Locale;
 
 
 /**
- * ���ڹ�����
- * 
- * @author zhengxin created 2005-4-27 9:45:44 version 1.0
  */
 public class DateUtil {
 

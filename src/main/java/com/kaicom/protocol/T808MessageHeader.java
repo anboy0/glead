@@ -71,7 +71,9 @@ public class T808MessageHeader {
 	private String simId;
 
 	public final String getSimId() {
-		
+		if(simId.length()==12) {
+			simId = (simId.substring(1, simId.length()));
+		}
 		return simId;
 	}
 
@@ -182,7 +184,7 @@ public class T808MessageHeader {
 					+ String.format("%02X", headerBytes[7])
 					+ String.format("%02X", headerBytes[8])
 					+ String.format("%02X", headerBytes[9]));
-			simId = (simId.substring(1, getSimId().length()));
+			simId = (simId.substring(1, simId.length()));
 			short t = (short)BitConverter.ToUInt16(headerBytes, 10);
 			setMessageSerialNo(t);
 			if (getIsPackage()) {
@@ -200,7 +202,8 @@ public class T808MessageHeader {
 					+ String.format("%02X", simIdBytes[3])
 					+ String.format("%02X", simIdBytes[4])
 					+ String.format("%02X", simIdBytes[5]));
-			setSimId(getSimId().substring(1, getSimId().length()));
+			//setSimId(getSimId().substring(1, simId.length()));
+			simId = (simId.substring(1, simId.length()));
 			setMessageSerialNo(buff.getShort());
 			if (getIsPackage()) {
 				setMessageTotalPacketsCount(buff.getShort());

@@ -39,7 +39,7 @@ public class Protocol_8106 implements ProtocolHandler{
 		loc.setUnlock_times(1000);
 		loc.setLock_status((byte)1);
 		loc.setUpload_status((byte)3);
-		loc.setBat_vol((byte)75);
+		loc.setBat_vol((byte)85);
 		loc.setMcc((short)460);
 		loc.setMnc((short)2);
 		loc.setLoc("21198,36222,3;21193,36221,2;21193,34552,6");

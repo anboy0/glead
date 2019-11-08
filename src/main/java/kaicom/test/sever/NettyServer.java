@@ -128,7 +128,7 @@ public class NettyServer {
 	}
 	public static void main(String[] args) throws Exception {
 		System.out.println("hello main v1.0.1");
-		NettyServer server = new NettyServer(20048);
+		NettyServer server = new NettyServer(18888);
 		server.startServer();
 
 		// Thread.sleep(3000);

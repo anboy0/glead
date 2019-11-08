@@ -1555,62 +1555,62 @@ public class BikeLocationExample {
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusEqualTo(String value) {
+        public Criteria andGpsStatusEqualTo(Integer value) {
             addCriterion("gps_status =", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusNotEqualTo(String value) {
+        public Criteria andGpsStatusNotEqualTo(Integer value) {
             addCriterion("gps_status <>", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusGreaterThan(String value) {
+        public Criteria andGpsStatusGreaterThan(Integer value) {
             addCriterion("gps_status >", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusGreaterThanOrEqualTo(String value) {
+        public Criteria andGpsStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("gps_status >=", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusLessThan(String value) {
+        public Criteria andGpsStatusLessThan(Integer value) {
             addCriterion("gps_status <", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusLessThanOrEqualTo(String value) {
+        public Criteria andGpsStatusLessThanOrEqualTo(Integer value) {
             addCriterion("gps_status <=", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusLike(String value) {
+        public Criteria andGpsStatusLike(Integer value) {
             addCriterion("gps_status like", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusNotLike(String value) {
+        public Criteria andGpsStatusNotLike(Integer value) {
             addCriterion("gps_status not like", value, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusIn(List<String> values) {
+        public Criteria andGpsStatusIn(List<Integer> values) {
             addCriterion("gps_status in", values, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusNotIn(List<String> values) {
+        public Criteria andGpsStatusNotIn(List<Integer> values) {
             addCriterion("gps_status not in", values, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusBetween(String value1, String value2) {
+        public Criteria andGpsStatusBetween(Integer value1, Integer value2) {
             addCriterion("gps_status between", value1, value2, "gpsStatus");
             return (Criteria) this;
         }
 
-        public Criteria andGpsStatusNotBetween(String value1, String value2) {
+        public Criteria andGpsStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("gps_status not between", value1, value2, "gpsStatus");
             return (Criteria) this;
         }

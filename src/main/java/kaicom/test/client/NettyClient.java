@@ -56,7 +56,7 @@ public class NettyClient {
 		
 		System.out.println(str);
 		System.out.println(Tools.ToHexString(str.getBytes()));
-		client.connect("mbox.f3322.net",18888);
+		client.connect("127.0.0.1",18888);
 
 		// Thread.sleep(3000);
 		// server.stopServer();

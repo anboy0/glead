@@ -24,6 +24,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.ReferenceCountUtil;
+import kaicom.activeMq.DispatchMqMgr;
 
 @Component
 @Sharable
@@ -50,6 +51,7 @@ public class NettyServerHandler extends ChannelHandlerAdapter { // (1)
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws InterruptedException { // (2)
+		System.out.println("1111");
 		try {
 			//ctx.channel().write(msg)
 			processPackageData((T808Message)msg,bikeDeviceService,ctx.channel());
@@ -67,6 +69,7 @@ public class NettyServerHandler extends ChannelHandlerAdapter { // (1)
 	 */
 	private void processPackageData(T808Message packageData,Object service,Channel chn) {
 		//logger.info(packageData.getMessageContents().toString());
+		//DispatchMqMgr.sendMqMsg(packageData.getMessageContents().toString());
 		if(packageData.getMessageType()!=0x2&&packageData.getMessageType()!=0x0108)
 		{
 			logger.info(packageData.getMessageContents().toString());

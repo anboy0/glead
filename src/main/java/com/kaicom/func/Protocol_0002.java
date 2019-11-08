@@ -16,6 +16,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 
+import java.util.Date;
+
 public class Protocol_0002 implements ProtocolHandler{
 	
 	BikeDeviceService bikeDeviceService;
@@ -27,12 +29,12 @@ public class Protocol_0002 implements ProtocolHandler{
 		T808MessageHeader header = tMsg.getHeader();
 		JT_8001 ack = new JT_8001();
 		ack.setResponseMessageId((short) tMsg.getMessageType());
-		header.setMessageType(0x8001);
+		header.setMessageType(0x8888);
 		ack.setResponseMessageSerialNo(header.getMessageSerialNo());
 		//header.setMessageSerialNo((short) (header.getMessageSerialNo()+1));
 		tMsg.setHeader(header);
 		tMsg.setMessageContents(ack);
-		
+		System.out.println(new Date());
 		return ack;
 	}
 	@Override

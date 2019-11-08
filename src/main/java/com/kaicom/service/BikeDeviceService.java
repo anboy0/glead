@@ -16,7 +16,6 @@ import com.kaicom.model.BikeLocation;
 import com.kaicom.model.BikeLocationExample;
 import com.kaicom.model.BikeVersion;
 import com.kaicom.model.BikeVersionExample;
-import com.kaicom.pojo.AppVersionExample;
 @Transactional
 @Service
 public class BikeDeviceService {

@@ -90,6 +90,7 @@ public class JT_8103 implements IMessageBody {
 				case 0xf002:
 					// byte[] strBytes = buff.gets(item.getParameterLength());
 					// strValue = Tools.ToHexString(strBytes);
+					
 					strBytes = Tools.HexString2Bytes(strParamValue);
 					buff.put((byte) strBytes.length);
 					buff.put(strBytes);

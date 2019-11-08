@@ -43,7 +43,7 @@ public class BikeLocation extends BikeLocationKey {
 
     private String alarm;
 
-    private String gpsStatus;
+    private Integer gpsStatus;
 
     private Short cn;
 
@@ -207,12 +207,12 @@ public class BikeLocation extends BikeLocationKey {
         this.alarm = alarm == null ? null : alarm.trim();
     }
 
-    public String getGpsStatus() {
+    public int getGpsStatus() {
         return gpsStatus;
     }
 
-    public void setGpsStatus(String gpsStatus) {
-        this.gpsStatus = gpsStatus == null ? null : gpsStatus.trim();
+    public void setGpsStatus(int gpsStatus) {
+        this.gpsStatus = gpsStatus ;
     }
 
     public Short getCn() {
